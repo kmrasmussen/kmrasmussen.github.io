@@ -1,2 +1,0 @@
-# kmrasmussen.github.io
-website
