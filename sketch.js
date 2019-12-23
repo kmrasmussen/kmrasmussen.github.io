@@ -1,36 +1,10 @@
-function getRandomArbitrary(min, max) {
+function randint(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-let t = 0
-let canvWidth = window.innerWidth
-let canvHeight = window.innerHeight
-let stopTime = Math.min(canvWidth, canvHeight)
-
-let circleRadius = (Math.min(canvHeight,canvWidth) / 3)
-let circleCenterX = canvWidth / 2
-let circleCenterY = canvHeight / 2
-let n_movers = 4
-let moverStartPos = [circleCenterX, circleCenterY]
-let movers = []
-let strokeColors = []
-let hue = getRandomArbitrary(10, 90)
-let strokeColorInitial = [hue, 100, 100]
-for(i = 0; i < n_movers; i++) {
-    movers.push(moverStartPos)
-    strokeColors.push(strokeColorInitial)
+function k_stroke(colorArray) {
+    stroke(colorArray[0], colorArray[1], colorArray[2])
 }
-
-function generateColorVariant(original) {
-    hue_noise = randomGaussian(0, 20)
-    new_hue = (original[0] + hue_noise) % 100
-    saturation_noise = abs(randomGaussian(0, 30))
-    new_saturation = original[1] - saturation_noise
-    brightness_noise = abs(randomGaussian(0, 30))
-    new_brightness = original[2] - brightness_noise
-    return [new_hue, new_saturation, new_brightness]
-}
-
 
 function k_point(vec) {
     point(vec[0], vec[1])
@@ -40,55 +14,70 @@ function k_line(vec1, vec2) {
     line(vec1[0], vec1[1], vec2[0], vec2[1])
 }
 
-function changeStroke(i) {
-    strokeWeight(randomGaussian(4,7))
-    stroke(strokeColors[i][0], strokeColors[i][1], strokeColors[i][2])
-}
+let canvWidth = window.innerWidth * 0.95
+let canvHeight = window.innerHeight * 0.95
+
+let hue = randint(10, 90)
+let title = 'ANTIPIANO'
 
 function setup() {
-    colorMode(HSB, 100)
     createCanvas(canvWidth, canvHeight)
-    background_hue = hue + randomGaussian(0,20)
-    background_saturation = abs(randomGaussian(0,20)) //100 - abs(randomGaussian(0, 30))
-    background_brightness = 100 - abs(randomGaussian(0, 20)) //100 - abs(randomGaussian(50, 30))
-    background(background_hue, background_saturation, background_brightness)
+    colorMode(HSB, 100)
+    noLoop()
+}
 
-    newColors = []
-    for(i = 0; i < strokeColors.length; i++) {
-        newColors.push(generateColorVariant(strokeColorInitial))
+function mouseClicked() {
+    console.log(mouseX + "," + mouseY)
+    if(mouseX < canvWidth * 0.5 || mouseX > canvWidth) {
+        return false;
     }
-    strokeColors = newColors
-
-    textSize((circleRadius / 3) * randomGaussian(1, 0.1));
-    textColor = generateColorVariant(strokeColorInitial) 
-    fill(hue, 100, 100);
-    courierFont = loadFont('COURIER.TTF');
-    textFont("Courier");
-    rotate(HALF_PI);
-    text('CLOSURE', 0, 0) //circleCenterX * 0.7, canvHeight / 2 - (1.25 * circleRadius));
-    
-    //noLoop()
-};
+    if(mouseY > canvHeight * 0.0 && mouseY < canvHeight * 0.1) {
+        console.log("about")
+        window.location.href = './about/index.html'
+    }
+    else if(mouseY > canvHeight * 0.1 && mouseY < canvHeight * 0.2) {
+        console.log("./closure")
+        window.location.href = './closure/index.html'
+    }
+    else if(mouseY > canvHeight * 0.2 && mouseY < canvHeight * 0.3) {
+        console.log("./volatile")
+        window.location.href = './volatile/index.html'
+    }
+    if(mouseY > canvHeight * 0.3 && mouseY < canvHeight * 0.4) {
+        console.log("./erdos-revyi")
+        window.location.href = './erdos-renyi/index.html'
+    }
+    return false;
+}
 
 function draw() {
-    t++;
-    if(t > stopTime) {
-        noLoop()
+    strokeWeight(20)
+
+    noStroke()
+    fill(hue, 30, 100);
+    textFont("Courier");
+    titleHeight = textWidth(title);
+    if(canvWidth > canvHeight) {
+        canvWidth = 380
+        canvHeight = 550
     }
-    for(i = 0; i < movers.length; i++) {
-        mover = movers[i]
-        k_point(mover)
-        deltax = randomGaussian(0,10)
-        deltay = randomGaussian(0,10)
-        newPoint = [mover[0] + deltax, mover[1] + deltay]
-        while(Math.pow(newPoint[0] - circleCenterX, 2) + Math.pow(newPoint[1] - circleCenterY, 2) > Math.pow(circleRadius, 2)) {
-            deltax = randomGaussian(0,5)
-            deltay = randomGaussian(0,5)
-            newPoint = [mover[0] + deltax, mover[1] + deltay]
-        }
-        changeStroke(i)
-        k_point(newPoint)
-        //k_line(mover, newPoint)
-        movers[i] = newPoint
-    }
-};
+
+    console.log("Width:", canvWidth)
+    console.log("Height:", canvHeight)
+    titleSize = canvWidth / 4
+    textSize(canvWidth / 10)
+    fill(hue, 30 + randomGaussian(0, 10), 70 + randomGaussian(0, 10));
+    text("about", canvWidth * 0.5, canvHeight * 0.1)
+    fill(hue, 30 + randomGaussian(0, 10), 70 + randomGaussian(0, 10));
+    text("closure", canvWidth * 0.5, canvHeight * 0.2)
+    fill(hue, 30 + randomGaussian(0, 10), 70 + randomGaussian(0, 10));
+    text("volatile", canvWidth * 0.5, canvHeight * 0.3)
+    fill(hue, 30 + randomGaussian(0, 10), 70 + randomGaussian(0, 10));
+    text("graph", canvWidth * 0.5, canvHeight * 0.4)
+
+    fill(hue, 30, 70);
+    rotate(HALF_PI);
+    textSize(titleSize)
+    text("PIANO", 0, 0 * titleSize)
+    text("ANTI-", 0, -1 * titleSize)
+}
