@@ -22,30 +22,35 @@ let strokeColorInitial = [hue, 100, 100]
 let canvWidth = window.innerWidth * 0.95
 let canvHeight = window.innerHeight * 0.95
 
+let n_lines = null
+let startY = canvHeight / 12
+let stopY = canvHeight - (startY * 0.5)
+let rangeY = stopY - startY
+let startX = canvWidth / 10
+let stopX =  canvWidth - startX
+let rangeX = stopX - startX
+let lineXes = []
+
+let currentHue = hue
+let currentSaturation = 10
+let currentBrightness = 70
+let deltaHue = null
+let deltaSaturation = null
+let deltaBrightness = null
+
+let currentI = 0
+let currentJ = 0
+let lineY = null
+let prevX = null
+let prevY = null
+
 function setup() {
     colorMode(HSB, 100)
-    noLoop()
     createCanvas(canvWidth, canvHeight)
     strokeWeight(randint(2,5))
-}
-
-function draw() {
-    n_lines = max(5, randomGaussian(15, 4))
-
-    startY = canvHeight / 12
-    stopY = canvHeight - (startY * 0.5)
-    rangeY = stopY - startY
-
-    startX = canvWidth / 10
-    stopX =  canvWidth - startX
-    rangeX = stopX - startX
-
-    stroke(255,0,0)
-
+    n_lines = max(5, randomGaussian(17, 4))
     deltaY = rangeY / (n_lines + 1)
-
-    lineXes = []
-
+    
     for(i = 0; i < n_lines; i++) {
         xes_on_line = []
         n_points_on_line = Math.pow((i), 2)
@@ -56,52 +61,46 @@ function draw() {
         lineXes.push(xes_on_line)
     }
 
-    currentHue = hue
-    currentSaturation = 10
-    currentBrightness = 70
     deltaHue = 30 / (n_lines + 1)
     deltaSaturation = (100 - currentSaturation) / (n_lines + 1)
     deltaBrightness = (100 - currentBrightness) / (n_lines + 1)
-    for(i = 0; i < lineXes.length; i++) {
-        stroke(currentHue, currentSaturation, currentBrightness)
-        currentHue += deltaHue
-        currentSaturation += deltaSaturation
-        currentBrightness -= deltaBrightness
+    stroke(currentHue, currentSaturation, currentBrightness)
 
+    lineY = startY + currentI * deltaY
+    prevX = startX
+    prevY = lineY
+    frameRate(1000)
+}
+
+function draw() {
+    for(i = 0; i < n_lines; i++) {
         lineY = startY + i * deltaY
-
-        prevX = startX
-        prevY = lineY
-        for(j = 0; j < lineXes[i].length; j++) {
-            x = lineXes[i][j]
+        if(currentJ < Math.pow((i), 2)) {
+            x = lineXes[i][currentJ]
             y = lineY + randomGaussian(0, deltaY / 10)
             line(prevX, prevY, x, y)
             prevX = x
             prevY = y
+            currentJ++
         }
-        line(prevX, prevY, stopX, lineY)
     }
 
-
-    titleSize = startX * 2/3
-    noStroke()
-    fill(currentHue, currentSaturation, currentBrightness)
-    textFont("Courier");
-
-    noStroke()
-    fill(currentHue, currentSaturation, currentBrightness)
-    textFont("Courier");
-
-    textSize(titleSize)
-    rotate(HALF_PI);
-    text('VOLATILE', 0, 0)
-
-    //nameSize = (Math.min(canvHeight,canvWidth) / 9) * randomGaussian(1, 0.1) / 3
-    //textSize(nameSize)
-    //noStroke()
-    //fill(currentHue, currentSaturation, currentBrightness)
-    //textFont("Courier");
-    //rotate(HALF_PI);
+    if((currentJ + 1 >= lineXes[n_lines - 1].length)) {
+        console.log("Stopping loop")
+        noLoop()
+        titleSize = startX * 2/3
+        noStroke()
+        fill(currentHue, currentSaturation, currentBrightness)
+        textFont("Courier");
+    
+        noStroke()
+        fill(currentHue, currentSaturation, currentBrightness)
+        textFont("Courier");
+    
+        textSize(titleSize)
+        rotate(HALF_PI);
+        text('VOLATILE', 0, 0)
+    }
 }
 
 console.log("Check out GitHub for source code!")
