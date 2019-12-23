@@ -3,11 +3,11 @@ function getRandomArbitrary(min, max) {
 }
 
 let t = 0
-let stopTime = 1500
 let canvWidth = window.innerWidth
 let canvHeight = window.innerHeight
+let stopTime = Math.min(canvWidth, canvHeight)
 
-let circleRadius = (canvHeight / 3)
+let circleRadius = (Math.min(canvHeight,canvWidth) / 3)
 let circleCenterX = canvWidth / 2
 let circleCenterY = canvHeight / 2
 let n_movers = 4
