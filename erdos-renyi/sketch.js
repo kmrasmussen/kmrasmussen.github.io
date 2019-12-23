@@ -33,7 +33,7 @@ let title = 'Erdős–Rényi'
 
 function setup() {
     createCanvas(canvWidth, canvHeight)
-    probOfConnection = Math.round(randomGaussian(50, 15))
+    probOfConnection = Math.round(randomGaussian(50, 20))
     colorMode(HSB, 100)
     
     strokeWeight(20)
@@ -51,15 +51,14 @@ function setup() {
         text("θ = ." + probOfConnection, 0, canvHeight * 0.95)
         rotate(HALF_PI);
         textSize(titleSize)
-        text("Rényi", 0, 0)
-        text("Erdős–", 0, -titleSize)
-
+        text("Rényi", 0, -0.2 * titleSize)
+        text("Erdős–", 0, -1.2 * titleSize)
     } else {
         textSize(canvHeight / 4)
         text(title, 0, canvHeight / 2)
         textSize(canvHeight / 10)
         fill(hue, 30, 70);
-        text("θ = ." + probOfConnection, 0, canvHeight / 2 + 100)
+        text("θ = ." + probOfConnection, 0, canvHeight * 0.70)
     }
     
     
