@@ -45,22 +45,21 @@ function setup() {
     textFont("Courier");
     titleHeight = textWidth(title);
     if(canvWidth < canvHeight) {
-        rotate(HALF_PI);
         titleSize = canvWidth / 4
+        textSize(canvWidth / 10)
+        fill(hue, 30, 70);
+        text("θ = ." + probOfConnection, 0, canvHeight * 0.95)
+        rotate(HALF_PI);
         textSize(titleSize)
         text("Rényi", 0, 0)
         text("Erdős–", 0, -titleSize)
-        textSize(50)
-        fill(hue, 30, 70);
-        text("θ = ." + probOfConnection, 50, -2 * titleSize)
-        stroke(hue, 100, 10)
+
     } else {
         textSize(canvHeight / 4)
         text(title, 0, canvHeight / 2)
-        textSize(canvHeight / 8)
+        textSize(canvHeight / 10)
         fill(hue, 30, 70);
         text("θ = ." + probOfConnection, 0, canvHeight / 2 + 100)
-        stroke(hue, 100, 10)
     }
     
     
@@ -78,11 +77,11 @@ function draw() {
         nodeColor = [hue + randomGaussian(0, 10), 100 - abs(randomGaussian(0, 10)), 50 + randomGaussian(0, 10)]
         k_stroke(nodeColor)
         nodeX = randomGaussian(canvWidth / 2, canvWidth / 4)
-        while(nodeX < 0 || nodeX > canvWidth) {
+        while(nodeX < canvWidth / 8 || nodeX > canvWidth - (canvWidth / 8)) {
             nodeX = randomGaussian(canvWidth / 2, canvWidth / 4)
         }
         nodeY = randomGaussian(canvHeight / 2, canvHeight / 4)
-        while(nodeY < 0 || nodeY > canvHeight) {
+        while(nodeY < canvHeight / 8 || nodeY > canvHeight - (canvHeight / 8)) {
             nodeY = randomGaussian(canvHeight / 2, canvHeight / 4)
         }
         node = [nodeX, nodeY, nodeColor, nodeSize]
