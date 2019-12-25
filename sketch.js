@@ -47,6 +47,10 @@ function mouseClicked() {
         console.log("./erdos-revyi")
         window.location.href = './erdos-renyi/index.html'
     }
+    if(mouseY > canvHeight * 0.4 && mouseY < canvHeight * 0.5) {
+        console.log("./tree")
+        window.location.href = './tree/index.html'
+    }
     return false;
 }
 
@@ -74,6 +78,8 @@ function draw() {
     text("volatile", canvWidth * 0.5, canvHeight * 0.3)
     fill(hue, 30 + randomGaussian(0, 10), 70 + randomGaussian(0, 10));
     text("graph", canvWidth * 0.5, canvHeight * 0.4)
+    fill(hue, 30 + randomGaussian(0, 10), 70 + randomGaussian(0, 10));
+    text("tree", canvWidth * 0.5, canvHeight * 0.5)
 
     fill(hue, 30, 70);
     rotate(HALF_PI);
