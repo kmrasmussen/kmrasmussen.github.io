@@ -87,23 +87,30 @@ let TWORAD = 2 * Math.PI
 let canvWidth = window.innerWidth * 0.95
 let canvHeight = window.innerHeight * 0.95
 let maxRadius = null
+let maxWidth = null
 let middle = null
 
-let treeDepth = 3 //randint(4, 10)
-let mean_n_children = 10
-let variance_n_children = 5
+let treeDepth = randint(4, 10)
+let mean_n_children = randint(2, 5)
+let variance_n_children = randint(1, 4)
 
 let hue = randfloat(10, 90)
 let title = 'hej'
+
+let orginalBrightness = 10
+let currentBrightness = null
+let originalSaturation = 50
 
 let tree = []
 
 function setup() {
     createCanvas(canvWidth, canvHeight)
     //colorMode(HSB, 100)
+    //stroke(hue, originalSaturation, orginalBrightness)
     maxRadius = min(canvWidth, canvHeight) * 0.45
+    maxWidth = maxRadius * 0.1
     middle = [canvWidth / 2, canvHeight / 2]
-    strokeWeight(10)
+    //strokeWeight(10)
     tree = normalTree(treeDepth, mean_n_children, variance_n_children)
     noLoop()
 }
@@ -113,7 +120,13 @@ let traverseTree = (tree, beginning, end, previousNode) => {
         //console.log("Stopping")
         return 0
     }
-    var radius = (min(canvHeight, canvWidth) / (1.2 * tree.height))
+    var radius = null // (min(canvHeight, canvWidth) / (1.2 * tree.height))
+    var depth = treeDepth - tree.height + 1
+    radius = maxRadius * (Math.sin(0.5 * Math.PI * (depth / (treeDepth - 1))))
+    var width = maxWidth / Math.pow(2, depth)
+
+    currentBrightness = 100 - (100 / Math.pow(2, depth))
+    //stroke(hue, originalSaturation, currentBrightness)
     
     var window = end - beginning
     if(beginning > end) {
@@ -125,37 +138,53 @@ let traverseTree = (tree, beginning, end, previousNode) => {
     var x = (treeDepth - tree.height) + 1
     var thetas = []
     var thetaBorders = []
-    var thetaOffset = randfloat(beginning, end)
+    var thetaOffset = null
+    if(beginning < end) {
+        thetaOffset = 0 // randint(beginning, end)
+    } else {
+        thetaOffset = 0
+    }
+    
     for(var i = 0; i < tree.children.length; i++) {
-        var theta = (beginning + ((thetaOffset + i * PHI * (window / TWORAD)) % window)) % TWORAD // randfloat(beginning, end)
+        var theta = (beginning + ((thetaOffset + i * PHI * (window / TWORAD)) % window))% TWORAD // randfloat(beginning, end)
+        theta = (beginning + ((thetaOffset + beginning + (i) * ((PHI) * (window / TWORAD))) % window)) % TWORAD
         thetas.push(theta)
     }
     sortAscending(thetas)
     //console.log("Thetas: " + thetas)
-    for(var i = 1; i < thetas.length; i++) {
-        thetaBorder = (beginning + (((thetas[i - 1] + thetas[i]) / 2)) % window) % TWORAD
-        thetaBorders.push(thetaBorder)
+    if(tree.height == treeDepth) {
+        for(var i = 1; i < thetas.length; i++) {
+            thetaBorder = (beginning + (((thetas[i - 1] + thetas[i]) / 2)) % window) % TWORAD
+            thetaBorders.push(thetaBorder)
+        }
+        thetaBorders.push(((thetas[thetas.length - 1] + TWORAD + thetas[0]) / 2) % window)
+    } else {
+        for(var i = 1; i < thetas.length; i++) {
+            thetaBorder = ((thetas[i - 1] + thetas[i]) / 2) % TWORAD
+            thetaBorders.push(thetaBorder)
+        }
+        thetaBorders.push(end)
     }
-    thetaBorders.push(((thetas[thetas.length - 1] + TWORAD + thetas[0]) / 2) % window)
     //sortAscending(thetaBorders)
     //console.log("Borders: " + thetaBorders)
 
+    /*
     console.log("Traversing this tree")
     console.log(tree)
     console.log("Beginning: " + beginning + " End: " + end + " Window: " + window)
     console.log("Thetas: " + thetas)
     console.log("Theta-borders: " + thetaBorders)
+    */
 
-    stroke(0,0,0)
     var nodes = []
     for(var i = 0; i < thetas.length; i++) {
         var nodeX = middle[0] + radius * Math.cos(thetas[i])
         var nodeY = middle[1] + radius * Math.sin(thetas[i])
         var node = [nodeX, nodeY]
         nodes.push(node)
-        strokeWeight(5)
-        k_point(node)
-        strokeWeight(2)
+        //strokeWeight(4)
+        //k_point(node)
+        strokeWeight(1)
         k_line(previousNode, node)
     }
 
@@ -170,18 +199,37 @@ let traverseTree = (tree, beginning, end, previousNode) => {
     stroke(0, 0, 0)
     */
 
-    //print("Theta last: " + thetas[thetaBorders.length - 1])
-    //print("Theta0 border 1: " + thetaBorders[thetaBorders.length - 2])
-    //print("Theta0 border 2: " + thetaBorders[thetaBorders.length - 1])
-    traverseTree(tree.children[0], thetaBorders[thetaBorders.length - 1], thetaBorders[0], nodes[0]) 
+    /*
+    if(tree.height == treeDepth) {
+        print("Theta last: " + thetas[thetaBorders.length - 1])
+        var myBeginning = thetaBorders[thetaBorders.length - 2]
+        var myEnd = thetaBorders[thetaBorders.length - 1]
+        print("Theta last borer 1: " + myBeginning)
+        print("Theta last border 2: " + myEnd)
+        traverseTree(tree.children[0], myBeginning, myEnd, nodes[0]) 
+    } else {
+        print("Theta last: " + thetas[thetaBorders.length - 1])
+        var myBeginning = thetaBorders[thetaBorders.length - 2]
+        var myEnd = end
+        print("Theta last borer 1: " + myBeginning)
+        print("Theta last border 2: " + myEnd)
+        traverseTree(tree.children[0], myBeginning, myEnd, nodes[0]) 
+    }
+    */
+    /*
+    if(tree.height == treeDepth) {
+        traverseTree(tree.children[0], thetaBorders[thetaBorders.length - 1], thetaBorders[0], nodes[0])
+    } else {
+        traverseTree(tree.children[0], thetaBorders[0], end, nodes[0])
+    }
+    */
 
     for(var i = 1; i < tree.children.length; i++) {
         var node = nodes[i]
         if(tree.children[i].children.length > 0) {
-            
             var newBeginning = thetaBorders[i - 1]
             var newEnd = thetaBorders[i]
-            console.log("Call trav: Beginning: " + newBeginning + " End: " + newEnd)
+            //console.log("Call trav: Beginning: " + newBeginning + " End: " + newEnd)
             traverseTree(tree.children[i], newBeginning, newEnd, node)
         } 
     }
