@@ -69,4 +69,4 @@ We want the least squares loss to be as low as possible. It is the average of th
 
 It seems good, but the problem is that we are modelling the data in order to predict new data which we have not seen. We distinguish between different sets of data points. There is the **training set** which is the $\mathbf{X}$ that we have been using up to now to find the best weights and so on. But we also have a **test set** which are other data points which we only see when we are done with making our model. We can see how close the function (line or polynomial) is to these unseen data points by using the least squares. The testing loss is what should matter since it is representative of the real case: Trying to predict some data which was not taken into account when learning.
 
-Our high-degree polynomial model might be good on the training set but bad on the the test set. When it is good on the test set we say that it *generalizes* well. If it seems good on the training set
+Our high-degree polynomial model might be good on the training set but bad on the the test set. When it is good on the test set we say that it *generalizes* well.
