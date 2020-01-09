@@ -1,31 +1,15 @@
 # Linear Modelling: A Least Squares Approach
 Notes for Rogers & Girolami 2017 by Kasper Rasmussen
 
-We have a **model** which is a function $\mathcal{R}^n \to \mathcal{R}$.
-A linear model is then a linear function. We have
-sample pairs $(feature, target)$ where $feature \in \mathcal{R}^n$ 
-and $target \in \mathcal{R}$. They constitute our **data set**. From this
-data, we want to learn the **parameters** of our model, so that we can
-map any new feature (notice that it is a vector in $\mathcal{R^n}$) that
-we have not seen to a given target in $\mathcal{R}$. So we are trying to
-predict new things based on things we have already seen. A linear function
-is $f(x_1, x_2, ..., x_n) = w_0 + w_1 x_1 + w_2 x_2 + ... + w_n x_n$ so
-the parameters are the coefficients/weights $w_0, w_1, ..., w_n$.
+We have a **model** which is a function $\mathcal{R}^n \to \mathcal{R}$. A linear model is then a linear function. We have sample pairs $(feature, target)$ where $feature \in \mathcal{R}^n$ and $target \in \mathcal{R}$. They constitute our **data set**. From this data, we want to learn the **parameters** of our model, so that we can map any new feature (notice that it is a vector in $\mathcal{R^n}$) that we have not seen to a given target in $\mathcal{R}$. So we are trying to predict new things based on things we have already seen. A linear function is $f(x_1, x_2, ..., x_n) = w_0 + w_1 x_1 + w_2 x_2 + ... + w_n x_n$ so the parameters are the coefficients/weights $w_0, w_1, ..., w_n$.
 
-Note that choosing to make a linear model
-of a dataset is based on an assumption by the modeller that it makes sense to use linear function to describe the structure of the data.
+Note that choosing to make a linear model of a dataset is based on an assumption by the modeller that it makes sense to use linear function to describe the structure of the data.
 
 ## What is a good model?
 
 How good a model is could be defined in different ways. Least squares is one approach. When we have a linear model of the data, we get a line, plane or hyperplane that we want to approximate the data well, you have definitely seen such a line being fit to some points before. The line does not fit perfectly to the points. The line gives you the predicted target for the feature. 
 
-Say we have a data point $(x_1, y_1)$. Then our prediction of the y-value at
-$x_1$ is $f(x_1)$. The distance between the prediction and the actual target is then
-related to $y_1 - f(x_1)$. We of course want this to be small, because then our prediction
-is closer to the actual target. In the least sqaures way of defining how good a model is,
-we take the square of this distance and then the average for all the data points. If
-our data set has $N$ data points $(x_i, y_i)$ then the least squares error or **loss**
-is
+Say we have a data point $(x_1, y_1)$. Then our prediction of the y-value at $x_1$ is $f(x_1)$. The distance between the prediction and the actual target is then related to $y_1 - f(x_1)$. We of course want this to be small, because then our prediction is closer to the actual target. In the least sqaures way of defining how good a model is, we take the square of this distance and then the average for all the data points. If our data set has $N$ data points $(x_i, y_i)$ then the least squares error or **loss** is
 
 $L = \frac{1}{N}\sum (y_i - f(x_i))^2$
 
@@ -33,12 +17,7 @@ And we want the parameters for the model which makes this loss as low as possibl
 
 ## Finding the weights which minimizes the loss
 
-Calculus can be used to find minima for functions. By finding the derivative and
-solving for 0 we can find maxima and minima. When our features are in $\mathcal{R}^d$
-we have $d$ coefficients for the linear function, so we will have to use multivariate
-calculus. Here one finds all the partial derivatives and form a vector of
-these called the **gradient** $\nabla f$. The we solve the vector equation
-$\nabla f(\mathbf{x}) = \mathbf{0}$ to find minima and maxima. A Hessian matrix of the second partial derivatives can be used to determine whether a point is a minima or a maxima.
+Calculus can be used to find minima for functions. By finding the derivative and solving for 0 we can find maxima and minima. When our features are in $\mathcal{R}^d$ we have $d$ coefficients for the linear function, so we will have to use multivariate calculus. Here one finds all the partial derivatives and form a vector of these called the **gradient** $\nabla f$. The we solve the vector equation $\nabla f(\mathbf{x}) = \mathbf{0}$ to find minima and maxima. A Hessian matrix of the second partial derivatives can be used to determine whether a point is a minima or a maxima.
 
 ## Vector and matrix notation for our data
 
@@ -47,7 +26,7 @@ and $\mathbf{x}_n = (1, x_1, x_2, ..., x_n)^T$. We write "$^T$" because we think
 
 The dot product of two vectors is the same as using matrix multiplication where the first is a $1 \times n$ row-vector and the second is a $n \times 1$ column vector. So $f(\mathbf{x}) = \mathbf{x}^T \mathbf{w}$. 
 
-This is much more concise, but we can go further and define the *data matrix* $\mathbf{X}$. Since matrix multiplication takes each row of the first matrix and dots it with a column of the second one is really doing something similar to $f(\mathbf{x}) = \mathbf{x}^T \mathbf{w}$ many times. If the rows of $\mathbf{X}$ are the feature vectors, then the multiplication $\mathbf{Xw}$ will give a column vector of all the predictions, since when we are multiplying we are taking each row and dotting with $\mathbf{w}$
+This is much more concise, but we can go further and define the *data matrix* $\mathbf{X}$. Since matrix multiplication takes each row of the first matrix and dots it with a column of the second one is really doing something similar to $f(\mathbf{x}) = \mathbf{x^T \mathbf{w}}$ many times. If the rows of $\mathbf{X}$ are the feature vectors, then the multiplication $\mathbf{Xw}$ will give a column vector of all the predictions, since when we are multiplying we are taking each row and dotting with $\mathbf{w}$
 
 Now, let $\mathbf{t}$ be a vector of all the targets. Then $\mathbf{Xw} - \mathbf{t}$ is a vector of the distances between predictions and actual values. This can be used to make a more concise expression of the least squares loss: Dotting a vector is the same as multiplying the components pairwise and summing. Then dotting a vector with itself is the same as squaring each component and summing. The least squares is the average of the squared distances. Taking the average means summing and dividing by the number of elements. So by dotting $\mathbf{Xw} - \mathbf{t}$ with itself we get the sum of squared distances and then we only need to divide by $N$ to get the least squares loss. So, remember the relationship between dotting and transposing:
 
@@ -78,7 +57,7 @@ Until now our model has been a linear function, but a model is just a function, 
 
 $f(x) = w_0 + w_1 x + w_2 x^2 + ... , w_n x^n$
 
-What if we completely different case where we wanted a *linear* model where the features were all of the form $(1, x, x^2, ..., x^n)^T$. Then our linear model would be exactly the same as above: We just want a coefficient to multiply with each component in the feature vector. What all of this means is that we should just turn our case where we want a polynomial model of a scalar-features $x$ into a linear model of vector-features $(1, x, x^2, ..., x^n)$.
+What if we completely different case where we wanted a *linear* model where the features were all of the form $(1, x, x^2, ..., x^n)^T$. Then our linear model would be exactly the same as above: We just want a coefficient to multiply with each component in the feature vector. What all of this means is that we should just turn our case where we want a polynomial model of a scalar-features $x$ into a linear model of vector-features $(1, x  x^2, ..., x^n)$.
 
 Remember the data matrix $\mathbf{X}$ where each row was a data point. In the scalar case our $\mathbf{X}$ has only one column with just $x$'es. But now we want to add a columnn of just ones before that and a column with $x^2$'es after that and so on.
 
