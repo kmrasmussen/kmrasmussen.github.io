@@ -69,4 +69,20 @@ We want the least squares loss to be as low as possible. It is the average of th
 
 It seems good, but the problem is that we are modelling the data in order to predict new data which we have not seen. We distinguish between different sets of data points. There is the **training set** which is the $\mathbf{X}$ that we have been using up to now to find the best weights and so on. But we also have a **test set** which are other data points which we only see when we are done with making our model. We can see how close the function (line or polynomial) is to these unseen data points by using the least squares. The testing loss is what should matter since it is representative of the real case: Trying to predict some data which was not taken into account when learning.
 
-Our high-degree polynomial model might be good on the training set but bad on the the test set. When it is good on the test set we say that it *generalizes* well.
+Our high-degree polynomial model might be good on the training set but bad on the the test set. When it is good on the test set we say that it *generalizes* well. But since we only see the test set after we are done making our model, how do we go about ensuring that our model will not overfit? We use a **validation set** while building the model. Fx we can try different degrees of polynomials on the training set and see which one does best on the validation set.
+
+Instead of just having separate training and validation set we can do **cross-validation**: We have all the data for model building and we split it into $K$ blocks. There are different rounds where one block is the validation set and the rest constitute the training set. For each round we find the least squares error on the validation block, the validation loss and take the average of all the validation losses. In this way we ensure that the validation set is quite representative. So how do we choose our model? We choose the model which performs best on the validations set or on cross-validation. **LOOCV** means leave-one-out cross-validation so now blocks are just one single data point and we see how well our model predicts the point we leave out.
+
+## Regularization
+
+Regularization is very related to overfitting. We saw that high-degree polynomials resulted overfitting, but instead of just choosing a low-degree we can also combat overfitting by not having the coefficients being so big. Until now we have had no control over the coefficients, the weights were just the ones giving the lowest loss on the training set. The key is to change the loss function, instead of going just saying that high distances are bad we can say that other things are bad too, namely that high weights are bad. We *sum the squared weights* and add them to the least squares loss to make a new bigger loss function, in this way the best model will have to balance between getting low distances and low weights. The new loss function is
+
+$$L = \frac{1}{N}\sum (t_n - f(x_n))^2 + \lambda \sum w_i^2$$
+
+The first term is the least squares the second is the **regularization term**, it is the sum of squared weights multiplied by a constant $\lambda$. What happens if $\lambda$ is high? Then the least squares part is drowned out and we only care about having low weights. So $\lambda$ controls the balance. We can use cross-validation to find a good $\lambda$ too.
+
+We already know that the dotting a vector with itself is the sum of squares, so the regularization term can be written as $\lambda \mathbf{w}^T\mathbf{w}$. Doing calculus on the new *regularized loss function* gives us an expression for the optimal weights:
+
+$$
+\mathbf{\hat{w}} = (\mathbf{X}^T\mathbf{X} + N\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{t}
+$$
