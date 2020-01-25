@@ -1,0 +1,58 @@
+Logos fremlæggelse
+
+Jeg har ikke et fast emne jeg gerne vil dele. Jeg vil gerne forsøge bare at koble diverse punkter som
+et kort over, hvor jeg er. Igennem det vil jeg forhåbentlig præsentere tanker, andre er uenige i, og så
+må man tage fat derfra.
+
+Jeg mener at matematikken og anvendt matematik såsom datalogi, fysik og statistik er vigtig på et filosofisk
+plan. Ontologi og epistemologi har stærke potentialer for logiske beskrivelsesformer.
+
+Vi er menneskelige organismer, og vi vil gerne beskrive, hvad det vil sige at et menneske har viden.
+Centralnervesystemet indeholder mulighederne for have viden i form af hukommelse. Det er vores alles erfaring
+at der er nogle præpositioner, som vi kan tage fejl om og at vi kan lære at noget andet er tilfældet.
+Vi kan formelt beskrive hjernen som et system, der har en hypotese om sandhedsværdien af alle præpositioner.
+Til sætningen, "Jeg er er i Danmark", vil jeg give en høj sandhedsværdi.
+
+Det interessante ved at bruge matematisk sandhedsregning i epistemologi er, at vi kan skabe en sammenhæng
+mellem sandhedsværdi og sandsynlighed. Sandt og falsk er normalt modelleret som 1 og 0, men vi kan
+medtage decimaltal mellem 0 og 1 og derved beskriver vi ved 0.2 at der er 20% sandsynlighed for at
+sætningen er sand, eller omvendt 80% for at den er falsk.
+
+Man kunne invende at det er for simplistisk at sige at vi om alle sætninger vi om 80% sandsynlighed vil
+sige at den er rigtig? Det er normalt at man i sandsynlighedsregningen forbinder sådanne diskussioner til
+at lave vædemål. Jeg er person A og person B kommer og spørger mig hvad jeg synes denne sætning: Der er
+mere end 60 mennesker på mit institut på nuværende tidspunkt. Han har lige sammen med en gruppe talt alle
+mennesker ved hjælp af højteknologisk overvågning, for hypotese. Jeg tjener 10 kroner hvis jeg har ret,
+mister 10 hvis jeg tager fejl.
+
+Med vores model vil vi gerne sige at et sådant vædemål har noget at gøre med sandhedsværdien at en
+sætning, der siger noget om hvad der er tilfældet, hvilket er en grundlæggende epistemologisk ide.
+Introduktioner til sandsynlighedsregning præsenter EX som summen af udfald vægtet med sandsynligheden
+for udfaldet. Her skal vi altså tænke vægtningen som tilliden til det ene eller andet. Vi får at
+Hvis jeg giver det 0.2 i sandhedsværdi forventer jeg at miste 6 kroner. Hvis jeg gav det 0.5 er
+forventningen at tjene 0. Lad os nedskalere gevinsterne til 1 og -1. så er funktionen g(s) = 2s - 1
+brugbar, fordi den oversætter sandsynligheden for sandt til forventet gevinst. Der er altså en lineær
+sammenhæng mellem sandhedsværdi og vædemål.
+
+Vi har nu etableret en formalisering af viden i en organisme, men hvad så med ontologien. Vi kan bruge
+denne til en langt mere abstrakt form for viden end antropocentrisk epistemologi har gjort. Vi kan
+sagtens tale om cellers viden om fremtidige udfald. Genregulatoriske netværk er modeller af interaktioner
+mellem gener i en enkelt celle eller i en population. Hvis vi formaliserer cellens receptorer som
+input kanal, og angiver en model for en gruppe af gener, der bliver opreguleret (måske med 0 til 1),
+givet en mængde aktiverede receptorer (måske fra 0 til 1). 
+
+Bemærk at binær skrive måde er langt det mest elegante når vi skal behandle midtpunktet mellem sandt
+og falsk. I decimaltal er det 0.5, mens det er 0.1 i decimal. Vi introducerer altså et redundant tegn
+i decimal.
+
+https://www.biorxiv.org/content/biaorxiv/early/2017/09/05/010124.full.pdf
+
+Man kan også forestille sig at en bred forståelse af intelligens giver baggrund for en diskussion
+om bevidsthed, selvom det er en kompleks diskussion, hvorvidt de bør holdes adskildt. Jeg har generelt
+haft den holdning, at der må være en sammenhæng, men man kan sige at problemet om at vise en nødvendig
+sammenhæng er lige så svært som det generelle hårde problem. Med dette problem er vi blot på dynamisk
+systemniveau i stedet for på molekylært eller atomart niveau.
+
+Derudover er det svært at forestille sig at den informationsprocessering der sker i de genregulerede
+netværk i cellerne er substansen indholdet af bevidstheden som vi kender den som mennesker. Det viser
+sig i neurovidenskaben at der er niveauer

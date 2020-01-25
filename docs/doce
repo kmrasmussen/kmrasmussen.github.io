@@ -1,0 +1,86 @@
+In philosophy the concept of knowledge is analysed in relation to the notion of
+justified true belief. Here a belief is a proposition and so knowledge is some
+type of function of a proposition, that is a proposition might be knowledge or
+it might not be.
+
+Outside the confines of epistemology the idea of knowing is less strict and is
+instead a part of complex language games. In the psychological sciences there
+is a distinction between declarative and procedural knowledge, which has an
+equivalent is the philosophical distinction, going back to Aristoteles, between
+episteme and techné, where the focus of epistemology is on the former.
+
+It is difficult to understand the first type of knowledge separately from language
+which enables the declaration. In philsophy, a proposition is fundamentally a
+sentence however complex, often encoded in a formal logic.
+
+It might be argued from a psychological perspective, that declarative knowledge
+is not a set of sentences but that an individual has a base of knowledge concerning
+some topic or situation and that from this base the individual is able to express a wide
+set of sentences. Because there are multiple ways of saying the same thing the
+actual linguistic sentences should be regarded as secondary to the structure which
+enables their production.
+
+Taking this simple model of a structure which enables production of sentences of
+knowledge is seems hard to deny, that in humans, memory is a necessary condition
+for this structure. Let us look first at knowledge based on experience.
+
+The subject has an experience at day 1. On the corner of this and this street he
+sees a large sign saying that a supermarket has opened. For psychological
+reasons the person trusts the advertisement. At day 2 the individual goes to the
+supermarket on the corner and buys groceries. At time 3 a psychologist-philosoper,
+knowing that there is supermarket on the corner, tests his knowledge: "Is there a
+supermarket at the intersection this and this road?" and the person answers:
+"Yes, there is." When the subject is asked why they answered yes rather than no,
+they say "I have been there yesterday." If the person had not been there yesterday,
+they would still say yes on the basis of seeing the sign. When challenged their
+belief would not be as strong as if they had been there. If they had been there and
+asked how sure, they would not bet all their money on it, because they could imagine
+even if unlikely, the supermarket could have closed down already or been bombed and
+many other cases. This shows that even if the belief is based on particular experience
+it is connected to other psychological aspects such as trust in signs, notions of
+deception, common sense, abilities to imagine alternatives etcetera.
+
+Suppose day 1 and day 2 happened and that the subject never had any explicit thoughts
+such as "Okay, there is a supermarket which has opened" or "I am going to the supermarket"
+and never mentioned the supermarket to anyone on these 2 days. It might be argued that
+it would not be possible form the psychological intention of going to the supermarket
+without a linguistic thought equivalent to "I am going to the supermarket", still it
+seems at least as reasonable that some people could see that their fridge was empty
+have an image in their head of the supermarket and start going there. This would mean
+that the intention and behavior of going to the supermarket happens still happens
+by the cortex having abstract representations of the environment but not necessarily
+with sentences. In this way it is analagous to saying that the person is able to use
+the underlying knowledge base to guide action without needing to produce explicit
+linguistic thought.
+
+Now making these assumptions about day 1 and day 2 and taking this model of cognition
+and behavior would be still on day 3, if the supermarket is indeed still going fine,
+say that the person has knowledge that "A supermarket has opened on the corner of this
+and this street"? We would perhaps think that it is weird to formulate the knowledge
+using so specific a sentence, and say that the subject has the potential of uttering
+this sentence or that given that he was asked whether this sentence is true he would
+agree with a high level of confidence. Without formulating in the same way, most would
+probably agree with the model of an underlying knowledge base regarding some supermarket
+as an instance of a more general perhaps fuzzy notion of supermarkets and shops and
+some spatial map of the environment and ability to find a path to this place given
+the need etc. That is, there is some representation of this knowledge in brain, some
+of it in the actual structure of the neurons, axons and dendrites some part of it
+only present as a potential given some stimulus, meaning that the psychological
+distinction between recognition and recall also has a neural basis. All of this is
+saying that even if we assume that the person lost all linguistic capabilities, by
+damaging some areas of the brain, we would still be willing, in some circumstances to
+regard them as having knowledge.
+
+The reason for going through this spectacle is to have a sufficient basis for the
+notion that knowledge is not based on language, propositions and declaration, and
+explore the notion of knowledge from another angle.
+
+For a system to know it has to hold memory. However, it is not clear that memory is
+a property which should be attributed to all systems.
+
+Suppose that we have a system with an input signal and the state of the system changes
+on the basis of this signal. In many cases such automata will have states which provide
+information about about previous patterns in the signal. Does this mean that such a
+system knows that a specific pattern has occured previously? Just because a pool table's
+current state is the causal result of previous actions by the players, does the system
+know the previous actions? 
