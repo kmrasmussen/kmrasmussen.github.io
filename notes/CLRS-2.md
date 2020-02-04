@@ -30,3 +30,18 @@ While-løkken kører hver gang vi skal finde den rigtige plads til element $A[j]
 Hvis man vil have summen $1 + 2 + 3 ... + n$ så giver det $\frac{n(n+1)}{2}$. I de værste tilfælde køres linje 5 altså så mange gange: $2 + 3 + ... + n = \sum_{j = 2}^{n} j = \frac{n(n+1)}{2} - 1$, hvor vi trækker $1$ fra fordi vi starter med $2$. Linje 6 og 7 inde i while løkken køres begge $1 + 2 + 3 ... + (n - 1) = \sum_{j = 2}^{n}(j - 1) = \frac{(n-1)(n)}{2}$. Det bliver $(n-1)(n)$, fordi vi kun vil op til $(n - 1)$.
 
 Da $n(n+1) = n^2 + n$ kommer udtrykket for vores funktion for køretiden $T(n)$ til at indeholde $n^2$ og derfor er *værstefaldskøretiden kvadratisk*.
+
+## Divide-and-conquer
+Divide-and-conquer er et *paradigme*, en måde at lave algoritmer på. Her deler problemet op i mindre dele. Hver del løses for sig og løsnignerne kombineres. Men hver af disse mindre problemer løses på samme måde, altså rekursivt. Vi har så et slags basistilfælde, hvor problemerne er blevet så små at de kan løses uden at dele dem mere op. Der er altså 3 dele: *Divide*, *conquer* and *combine*.
+
+## Mergesort
+Merge sort løser sorteringsproblemet med divide-and-conquer: Divide arrayet op i to halvdele, left and right, conquer ved at bruge merge sort til at sortere dem hver for sig og combine ved at brug en metode der bare hedder merge til at få de to sorterede left and right til at blive et samlet sorteret array.
+
+Notationen i CLRS er lidt besværlig. Merge-sort er $MERGESORT(A, p, r)$ sorterer $A[p..r]$, så når vi skal divide i left og right skal vi have "gennemsnittet", $q = floor((p+r)/2)$. Hvis arrayet har et ulige antal elementer bliver left altså en mindre end right. Når vi har fundet $q$ er vi færdig med divide. Så kalder vi $MERGESORT(A, p, q)$ og $MERGESORT(A, q + 1, r)$ hvilket er vores conquer-step. Til sidst kombinerer vi med $MERGE(A, p, q, r)$, hvor $p, q, r$ bruges til at vide hvad der er left og right.
+
+Left er $A[p ..q]$ og right er $A[(p + 1) .. r]$. Hvor stor er left? Hvis $q = 5$ og $p = 2$ består left af elementerne på plads $2, 3, 4, 5$, så $n_1 = p - q + 1$. På samme måde for right $n_2 = r - (q + 1) + 1 = r - q$. $MERGE$ laver arrays 1-indekserede kopier af de to halvdele og de hedder $L$ og $R$ men de slutter begge med et ekstra element der har værdien $\infty$, en sentinel, og den gør proceduren mere simpel.
+
+I linje 12-17 af MERGE bruges $k$ til at løbe vi fra $p$ til $r$, altså over alle pladserne hvor vi skal indsætte tallene fra left og right i sorteret rækkefølge. Vi bruger $i$ og $j$ til at holde styr på det mindste element vi endnu ikke har kopieret over i $A$ (forestil dig at vi nærmest har slettet denne del af $A$). Vi sammenligner de to mindste ikke-kopierede og kopierer den mindste over og husker at inkrementere *enten* $i$ eller $j$. Det giver mening at køretiden for hele MERGE er proportional med $n_1 + n_2$, fordi vi skal igennem alle elementer i left og right før vi er færdige. Man kan også vise at MERGE er korrekt vha. en løkke-invariant.
+
+## Køretid for merge sort
+Da merge sort er rekursiv er det ikke lige så simpelt at finde køretiden som ved insertion sort. Vi beskriver køretiden $T(n)$ som en rekursiv funktion med et $\Theta(1)$ base case og en rekursiv case med flere termer. Først er der to dele, der hver har halv så stor størrelse, så det er $2T(n/2)$, derudover skal vi lave divide som var $\Theta(1)$ bare at finde gennemsnit og så skal vi combine, hvilket var $\Theta(n)$.
