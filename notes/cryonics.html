@@ -1,0 +1,323 @@
+<!DOCTYPE html><html><head>
+      <title>cryonics</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/kasper/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.1/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="cryonics-guide-to-gaia">Cryonic&apos;s Guide to Gaia</h2>
+
+<h2 class="mume-header" id="1">1</h2>
+
+<p>Den sidste halvdel af foreg&#xE5;ende &#xE5;rhundrede indeholdt en sp&#xE6;ndende udvikling i antallet af mennesker der blev medlemmer af diverse organisationer for nedfrysning af medlemmers fysiske kroppe og digitalisering af den information, der l&#xE5; latent i deres hjernes struktur. Indtil videre er man imidlertid i stand til at opt&#xF8; og genoplive medlemmer tilbage fra slutningen af 70&#x2019;erne. Man vil som modtager af denne freml&#xE6;ggelse naturligvis kunne huske at have lagt sig til at sove i den periode. Her blev det nyopdagede heliumsubstrat anvendt i sammenh&#xE6;ng med en ny form for krystaliseringsteknologi, der gjorde det muligt at inddele kisten i et krystallografisk tremmev&#xE6;rk, hvor hver eneste klods med et givent 3d koordinat var p&#xE5; tilstr&#xE6;kkelig lavt nanoniveau til at kunne digitalisere dens indhold med den nyeste mikroskopi. Modtager bedes alts&#xE5; affinde sig med at v&#xE6;re en molekyl&#xE6;rt og 3d printet rekonstruktion af sin tidligere organisme, og vil tr&#xF8;stes ved at vide, at alle organismer er blevet opt&#xF8;et p&#xE5; denne m&#xE5;de det sidste halvandet &#xE5;rti. Uanset hvad, s&#xE5; &#xF8;nsker vi dig velkommen til den verden du er v&#xE5;gnet op i med denne Cryonics&#x2019; guide to Gaia.</p>
+<h2 class="mume-header" id="2">2</h2>
+
+<p>Senere p&#xE5; ugen vil du bliv bedst om at v&#xE6;lge dit nye genanl&#xE6;g sammen med en socialarbejder, der vil tale med dig om, hvordan diverse nye pakker af gener passer sammen med din historie i den gamle verden. Der er visse gener, der ikke vil f&#xE5; lov til at tr&#xE6;de ud p&#xE5; gaden, fordi man endnu ikke har fremsimuleret en significant other, der kan muligg&#xF8;re at de lever i et symbiotisk forhold med Gaia i stedet for at give Alzheimers og andre historiske sygdomme. De pr&#xE6;cancerceller, der var tilstede i dit legeme ved nedfrysning vil blive elimineret senere i aften, og selvom du endnu ikke har f&#xE5;et oph&#xE6;vet din indoktrinering i artsisme vil du m&#xE5;ske stadig v&#xE6;re glad for at h&#xF8;re, at vi lader alle muterede celler leve videre i sandkasser i skyen, hvor deres potentiale unders&#xF8;ges. Opt&#xF8;ede er fra den tid, hvor der endnu ikke var opstillet matematiske modeller for traumefri opdragelse i pattedyr med st&#xE6;rke for&#xE6;ldre-barn afh&#xE6;ngigheder. Derfor vil modtageren have mulighed for at v&#xE6;lge mellem diverse rehabiliteringsmuligheder. Udover en rejse til Shikoku vil De have mulighed for at v&#xE6;lge en mere bredt anvendt l&#xF8;sning, der generer en akut n&#xE6;rd&#xF8;dsoplevelse, som giver patienten mulighed for at indse at for&#xE6;ldre og andre ansvarshavende voksne i barndommen selv var traumatiserede. Ved denne psykiatriske intervention vil nervesystemet p&#xE5; patienten udl&#xF8;se den samlede m&#xE6;ngde af kuldegysninger og mareridt. Selvom den fysiologiske respons m&#xE5;ske kan v&#xE6;re en relativt interessant oplevelse for patienten, vil der efterf&#xF8;lgende v&#xE6;re et h&#xF8;jt sentiment af tilgivelse og empati, der er tilstr&#xE6;kkelig til at der ikke er nogle mangler i patientens efterf&#xF8;lgende mentale helbred, der skyldes mangler i opv&#xE6;kst.</p>
+<h2 class="mume-header" id="3">3</h2>
+
+<p>Det h&#xE6;nder sig, at givet de historiske forl&#xF8;b vil De m&#xE5;ske have en del gamle bekendte, m&#xE5;ske b&#xF8;rn, der n&#xE5;ede at blive en del af velf&#xE6;rdsprogrammet for reversering af &#xE6;ldelse. Der var faktisk voldsom politisk opstand i &#xE5;rtierne op til og efter det store gennembrud inden for reversering af &#xE6;ldelse, fordi det desv&#xE6;rre skete inden for det kapitalistiske dom&#xE6;ne og derved blev patenteret til stor skuffelse for mange patientforeninger. WHO fik i 60&#x2019;erne universel st&#xF8;tte blandt klodens demokratier til at udrydde lidelse. De overskydende penge i budgetterne efter nedl&#xE6;ggelse af tidligere s&#xE5;kaldte staters forsvar viste sig at v&#xE6;re et tilstr&#xE6;kkelig &#xF8;gning i WHO&#x2019;s &#xF8;konomisk budget til at muligg&#xF8;re velf&#xE6;rdsprogrammet. Efter den globale vedtagelse af dokumentet for oph&#xE6;velse af intellektuel ejendom kunne WHO billigt syntetisere og anvende de molekyler og genterapier, der skulle markere enden p&#xE5; d&#xF8;d ved &#xE6;ldelse. Der er bred enighed om at trafikministerierne halter ang&#xE5;ende d&#xF8;d ved br&#xE6;kkede nakker, og at det er spild af resourcer at skulle genoprette for mange organismer, der har en lidt for lemf&#xE6;ldig omgang med gr&#xE6;nserne mellem liv og d&#xF8;d. Der er jo naturligvis ogs&#xE5; forekomster af organismer, der br&#xE6;nder ihjel og som ikke vender tilbage, hvis de ikke har taget deres ellers gratis &#xE5;rlige backup.</p>
+<h2 class="mume-header" id="4">4</h2>
+
+<p>I cryonistaer, som er blevet opt&#xF8;et i denne iteration af programmet er stadig for unge til at kunne huske en verden hvor menneskelige f&#xF8;dek&#xE6;der var hierarkiske med dyr under sig. I vil nok imidlertid v&#xE6;re glade for at h&#xF8;re at Gaia siden 90&#x2019;erne har v&#xE6;ret s&#xE5; godt som fri for, at et dyr skal lide for at en anden kan blive m&#xE6;t, hvis man ser bort fra tragedierne i det sydlige Serengeti i 17 og 18.  Det er forskelligt, hvad diverse arter har valgt at tillade som overgreb, men de fleste kornarter, frugttr&#xE6;er og n&#xE6;sten alle aseksuelt reproducerende systemer er s&#xE5; hyppigt brugte i gen- og s&#xE6;dbankerne, at de ikke har haft noget imod at givet lov til overd&#xE5;dig h&#xF8;st. Muskelv&#xE6;v groet uafh&#xE6;ngigt af et nervesystem har vist sig helt tilstr&#xE6;kkeligt som f&#xF8;de til de arter, der af fysiologiske &#xE5;rsager ikke kan n&#xF8;jes med spise planter uden at man ville skulle lave omfattende &#xE6;ndringer i deres anl&#xE6;g. Du vil formentlig finde at de aspekter ved Gaia, som du vil elske mest, er manifestationer af symbiose mellem forskellige biologiske, teknologiske og andre informationsprocesserende systemer. F&#xF8;dek&#xE6;der er endnu en del af pensum p&#xE5; online l&#xE6;ringsplatformene, og meget af den dannes af de mellemafrikanske anarkistiske f&#xF8;derationer, hvor forskningsgrupperne ang&#xE5;ende &#xF8;kologisk &#xF8;konomi og intersektionel anti-artsisme er s&#xE6;rdeles fremtr&#xE6;dende.</p>
+<h2 class="mume-header" id="5">5</h2>
+
+<p>Det er lykkedes at skabe et fuldst&#xE6;ndig globalt internet hvor hver eneste menneske, bl&#xE6;ksprutte, yogi, abe, papeg&#xF8;je samt andre genoplivede arter og nyskabte hyperevolution&#xE6;rt simulerede organismer og &#xF8;kosystemer er koblet til en global blockchain, der er samlet under en drivhusgasperfektioneret atmosf&#xE6;re af satellitter forbundet til en underjordisk CERN-lignende mastodont af lyskabler og andet kvantestof den almindelige modtager ikke umiddelbart har brug for at g&#xE5; i dybden med. Viraene lever som sv&#xE6;rmer i underjordiske genregulatoriske netv&#xE6;rk og de har nu alle f&#xE5;et deres repr&#xE6;sentations-ID, s&#xE5;ledes at deres unikke &#xF8;kologiske nicher bliver repr&#xE6;senteret i finansloven. Nervesystemerne i de fleste dyrearter b&#xE5;de i skove, dale og i Dubais og New Yorks skyline har b&#xF8;lgeaktivitet, der gemmes og analyseres i skyen, under Saharas &#xF8;rken og i bunden af Amazonas. Sidstn&#xE6;vnte er ikke l&#xE6;ngere truet, men er blevet en sand tropisk regnskov, hvor et v&#xE6;ld af arter sekventeres, opdages, hospitaliseres, og f&#xE5;r sin plads i det evolution&#xE6;re tr&#xE6;, der ophobes og videresimuleres p&#xE5; Arktis af statistikere og maskinl&#xE6;ringsanstalter, der ikke l&#xE6;ngere sk&#xE6;nker tidligere tiders militaristiske udnyttelse af disse videnskaber en tanke.</p>
+<h2 class="mume-header" id="6">6</h2>
+
+<p>Selvom planterne ikke har hurtige elektriske nervesystemer, har symbiotiske relationer mellem mycelium - som man kender dem fra h&#xF8;jere svampearter - og tr&#xE6;ers rodnetv&#xE6;rk etableret rimelig hurtige analoger til nervesystemer, der g&#xF8;r det muligt algoritmisk at afd&#xE6;kke signalerne og beskederne i myceliumnetv&#xE6;rk, der vokser i skovbunde og plantebed. Man nedgraver diskretiserende sensorer, der overs&#xE6;tter informationen til bitstr&#xF8;mme, der deles p&#xE5; det globale internet. Tr&#xE6;er repr&#xE6;senteres i de lokale direkte demokratier og anarkistiske f&#xF8;derationer ved give dem adgang til servere, der muligg&#xF8;r formulering af deres &#xF8;kologiske interesser og udbud af gensidigt samarbejde. Man vil p&#xE5; de indonesiske &#xF8;er finde regnskove, hvor der i tr&#xE6;ernes r&#xF8;dder er gemt store datafiler p&#xE5; biologiske harddiske. Du vil frit kunne f&#xE5; adgang til Shakespeares, Bruno Latour og Peter Singers v&#xE6;rker, da tr&#xE6;kronerne udover optimeret klorofyl ogs&#xE5; har epidermiske celler, hvor membranerne fungerer som radiosendere.</p>
+<h2 class="mume-header" id="7">7</h2>
+
+<p>Hvis du vil indtage en r&#xE5;vare vil det ske ved at der bliver trukket fra din blockchain wallet, der repr&#xE6;senterer din retm&#xE6;ssige andel af den energi, der bliver opsamlet i Sahara, i jordens kerne og andetsteds. Hvis du agter at plukke et &#xE6;ble, der vokser i g&#xE5;gaden, vil det betyde at du donerer et bel&#xF8;b til DNA-sekventering af kernerne i det, samt betaler for den energi det har kr&#xE6;vet af tr&#xE6;et at skabe et s&#xE5;dant biologisk kunstv&#xE6;rk som frugten udg&#xF8;r. Her vil du ogs&#xE5; v&#xE6;re interesseret i at bem&#xE6;rke, at et nyt paper i Nature beskriver toiletter med indbygget kapacitet for metagenomiske sekvenseringer af toiletg&#xE6;ngerens ekskrementer, hvor madindholdets indflydelse p&#xE5; tarmfloraen totaloverv&#xE5;ges. Bl&#xE6;ksprutteminister p&#xE5; socialministeriet og postdoc i socialanalyse mener at det er den rette vej at g&#xE5; i udvidelse af sanitet for alle borgere.</p>
+<h2 class="mume-header" id="8">8</h2>
+
+<p>Musikken deles ikke direkte til &#xF8;rer, men er mere noget der foresp&#xF8;rges som et elektronisk signal til det omr&#xE5;de af nervesystemet (eller myceliet), der er mest glad for et givent hit. Det er normalt at regnorme og diverse giftige svampe i Nordeuropa har trang til en mere fraktal form for jazz. Pladeselskaberne sluttede i starten af 30&apos;erne: De generative neurale netv&#xE6;rk blev politisk anerkendt som levende informationsprocesserende systemer og mange blev adopteret af musikere i sovev&#xE6;relserne og snart var Soundcloud mere en form for zoologisk have, hvor kunstige neurale netv&#xE6;rk og digitaliserede arter af mug og andre politiske minoriteter levede i h&#xF8;j &#xF8;kologisk aktivitet med eksisterende arkiver fra iTunes og The Pirate Bay. Man vil alts&#xE5; forst&#xE5; at der p&#xE5; Gaia b&#xE5;de lever fysiske biologiske organismer og digitale virtuelle systemer, men at disse frit kan kommunikere via 17G eller sneglepost. F&#xF8;romtalte regnorme har ogs&#xE5; sl&#xE6;gtninge hvis bl&#xE6;vrende kropsadf&#xE6;rd gik viralt p&#xE5; social&#xF8;kologiske medier for &#xE5;r tilbage og var hyppigt anvendt som dansemoves i frikvarterer og p&#xE5; floor. Visse af disse orme holdt verdensomsp&#xE6;ndte turneer, ofte hjulpet af skovfogeder, der alligevel arbejdede p&#xE5; kvarttid.</p>
+<h2 class="mume-header" id="9">9</h2>
+
+<p>Transcranial trance techno har vist sig ikke blot at v&#xE6;re en fancy trend, men en solid del af eksempelvis Berlin og Amsterdams nattescene. Her foreg&#xE5;r der risikofri stimulering af is&#xE6;r de dele af nervesystemet, der omfatter perception og affekt ved hj&#xE6;lp af finurlige neurosynthesizere. Is&#xE6;r har afarter af kam&#xE6;leoner og fr&#xF8;er, med gr&#xE5; hjernemasse med 50 gange v&#xE6;gten af det man kender fra modtagerens tid, vist sig at v&#xE6;re virtu&#xF8;se DJ&#x2019;s med imponerende sans for synthesizere og videreudvikling af lydlandskaber og polyrytmiske beats. I den arbejdsfrie halvdel af ugen vil man i Berlins nattetimer finde arter, der st&#xE5;r p&#xE5; dansegulvene med elektroder p&#xE5; hoved og nakke, der h&#xE6;nger fra loftet og stimulerer en trance, der ikke blot er musikalsk, med overskrider distinktioner mellem sanser. Alligevel er det sj&#xE6;ldent man vil h&#xF8;re en festabe af vilk&#xE5;rlig art omtale en svedig aften som en &#xE5;ndelig oplevelse.</p>
+<h2 class="mume-header" id="10">10</h2>
+
+<p>Apropos f&#xE6;rdiggjorde man i Japan tidligt nedjusteringen af homo sapiens land- og ressourceforbrug til at v&#xE6;re i overensstemmelse med Bestemmelsen for Menneskeartens Bliven Voksen, som vi vil vende tilbage til snarest. Pointen er dog, at man har bevaret Shikoku som et retr&#xE6;te og hospice, hvor en serie af traditionelle psykedelika bliver inkorporeret med andre nyopdagede amazonske phytokemikalier. Vi ser her cyberbuddhister, troende, pilgrimme og traumepatienter, der modtager algoritmisk genererede transcendentale virtual reality-oplevelser, alt sammen delt p&#xE5; den verdensomsp&#xE6;ndende post-kapitaliske open source platform. I det hele taget har det overrasket mange, at diverse arter udover homo sapiens viser sig at v&#xE6;re i stand til st&#xE5; i eksistentiel relation til det absolutte. Der er dog ikke nogen endegyldig religi&#xF8;s sandhed, der har f&#xE5;et konsensus blandt klodens arter. Dog kalder de fleste organismer med indre repr&#xE6;sentationssystemer, der er bygget p&#xE5; menneskelig lingvistik, den den nuv&#xE6;rende globalt integrerede bios- og teknosf&#xE6;re for Gaia, og store dele af klodens borgere st&#xE5;r da ogs&#xE5; i et and&#xE6;gtigt forhold til &quot;hende&quot;.</p>
+<h2 class="mume-header" id="11">11</h2>
+
+<p>Man har i de st&#xF8;rre r&#xE5;d vedtaget at homo sapiens&#x2019; forbrug af f&#xF8;devarer skal opdyrkes p&#xE5; h&#xF8;jst 4 procent af det samlede landareal, og du vil derfor finde mange steder som nord for Taj Mahal, hvor man i hundrede meter h&#xF8;je vertikale landbrug p&#xE5; mange hektar dyrker genmodificerede og pesticidfri gr&#xF8;ntsager under kliniske forhold. I baghaverne st&#xE5;r komposteringssiloer der under assistance af data analytiske algoritmer fors&#xF8;ger at danne et unikt lokalt &#xF8;kosystem. Disse systemer modtager familiens lort og biologiske madaffald og afh&#xE6;ngig af &#xF8;kosystemets effektivitet sender den en vis rate af dejlig muld videre, der kan bruges af lokale plantearter, der gladeligt tager imod. Eliminationen af skrald fra Gaia bygger p&#xE5; en kontinuerlig integration af de utallige &#xF8;kosystemers ind- og udgangskanaler for resourcer og energi, s&#xE5;ledes at der skabes symbiotiske cirkulerende netv&#xE6;rk, hvor intet er skrald. Der generes public data sets af disse netv&#xE6;rk, og de analyseres af b&#xE5;de IQ-optimerede savanter - der ofte af &#xE6;stetiske &#xE5;rsage g&#xE5;r med hornbriller -og kvanteoptimerede digitale dybe neurale netv&#xE6;rk, der ligesom savanterne har sans for de mest moderne former for Sudoku, og virtuelle h&#xF8;jdimensionelle Rubiks Cubes. Simplere moderne sudokuer bliver brugt i daginstitutionerne, efter at psykologisk forskning viste at skoleb&#xF8;rn i det nordlige Korea havde signifikant dendritisk v&#xE6;kst i visse dele af frontallapperne og scorede 30% h&#xF8;jere p&#xE5; tests i emnet diskret matematik. Visse teoretikere mener at sudokuerne er blevet s&#xE5; komplekse aksiomatiske systemer, at de b&#xF8;r accepteres som art i Gaia. De ville i s&#xE5; fald f&#xE5; lov til at leve i afkrogene under diverse organismers kranier og bidrage til en symbiotisk v&#xE6;kst i v&#xE6;rtens centralnervesystem og derved &#xF8;ge processering af komplekse logiske og regelbundne sammenh&#xE6;nge.</p>
+<h2 class="mume-header" id="12">12</h2>
+
+<p>Den optimistiske reaktion p&#xE5; det faktum at havene udgjorde en stigende del af klodens totale overfladeareal i perioden inden menneskearten fik styr p&#xE5; sin pyromani, var at man valgte at bruge den smeltede is til at lave hydrotermi dybt i klodens kerne, og derefter etablere ambiti&#xF8;st boligbyggeri i bunden af stillehavet. De indf&#xF8;dte arter i eksempelvis Marianergraven var s&#xE6;rdeles uxenophobiske og tillod storstilet immigration af arter, hvis gamle habitat var blevet &#xF8;delagt i den tidligere uheldige biodiversitetskrise. Med forbehold for at komme til at lyde som et touristbureau kan det bem&#xE6;rkes, at man p&#xE5; kilometers dybde vil finde ferskvandsakvarier, tropiske terarrier og hyggelige caf&#xE9;lounges. P&#xE5; gader og str&#xE6;der vil man ofte se indf&#xF8;dte fisk, der ofte spontant laver visual DJ forestillinger ved hj&#xE6;lp af biologiske og elektroniske lyskilder, der danner baggrund for nogle af klodens vildeste ravefestivaller. De historiske folkedrab p&#xE5; eksempelvis koraller og deres symbiotiske f&#xE6;ller har medf&#xF8;rt politisk initiativ til at etableret store nationalparker i havene, hvor biologiske klasser og ordner, der tidligere var udsat for brutal udrensning har mulighed for at genopbygge deres fortids pragt. Efter pyromaniens ende fik oceaningeni&#xF8;rer genetableret den pH-v&#xE6;rdi, der ville muligg&#xF8;re flest mulige nicher, selvom man da ogs&#xE5; har lavet atlantiske bassiner, hvor temperatur, syrlighed og saltindhold er langt fra den gennemsnitlige golfstr&#xF8;msfarende borgers vante habitater.</p>
+<h2 class="mume-header" id="13">13</h2>
+
+<p>Seksualitet og reproduktion er efterh&#xE5;nden blevet to fuldst&#xE6;ndigt uafh&#xE6;ngige sf&#xE6;rer. Man erkendte af den totale frig&#xF8;relse af hunnernes politiske eksistens var helt um&#xE6;rkeligt relateret til udviklingen af kunstige moderkager, der kunne frig&#xF8;re hunk&#xF8;nsorganismer (heriblandt menneskelige kvinder) for den uv&#xE6;rdige f&#xF8;dselsoplevelse der ellers havde v&#xE6;ret deres lod inden den evolution&#xE6;re udvikling kom under etisk kontrol. Det at st&#xF8;rre og st&#xF8;rre dele af befolkningen ser deres arvemateriale som en unikt men stadig relativt vilk&#xE5;rlig sammens&#xE6;tning af gener, har medf&#xF8;rt lange k&#xF8;er p&#xE5; de psykiatriske ventev&#xE6;relser, hvor organismer v&#xE6;lger at f&#xE5; elimineret de neurale kredsl&#xF8;b, der begr&#xE6;nser deres livsf&#xF8;relse til en lang liderlig primal sekvens af v&#xE5;de dr&#xF8;mme. Der er dog ogs&#xE5; mange der finder stor gl&#xE6;de i at beholde seksualiteten. Det bliver kaldt en demokratisering af seksualiteten, idr&#xE6;tten og sundheden, at mennesker og hste nu selv kan v&#xE6;lge st&#xF8;rrelsen p&#xE5; deres muskler og lingerie, efter nye opdagelser inden for steroidal biokemi. Numser, bryster, kind- og krageben, der uden silikone p&#xE5; &#xF8;kologisk vis n&#xE6;rmer sig de optimale former for seksuel fitness har til manges overraskelse ikke gjort at alle har valgt samme ydre udtryk. Diversiteten af k&#xF8;n og seksualiteter er eksploderet, og sammen med at afskaffelsen og reverseringen af &#xE6;ldelse har det resulteret i en bred dating scene, der I det store hele bar bidraget til etableringen af forhold hvor der kan overf&#xF8;res meget livsvisdom til den yngre part. Man finder i gaderne b&#xE5;de de velkendte forelskede par men ogs&#xE5; trekanter, hvor den ene k&#xF8;rer p&#xE5; tredje hjul. Det biologiske artsbegreb medf&#xF8;rer naturligvis, at der ligesom muldyr findes diverse kuri&#xF8;siteter, som man har arbejdet h&#xE5;rdt p&#xE5; ikke at blive udsat for marginalisering.</p>
+<h2 class="mume-header" id="14">14</h2>
+
+<p>I de h&#xF8;jere politiske r&#xE5;d, hvor is&#xE6;r de st&#xF8;rre bl&#xE6;ksprutter har udem&#xE6;rket sig som forfattere af politiske tiltag, der indkodes ved hj&#xE6;lp af formel logik og datalogiske typesystemer til brug i domstole og kongresser, er der delte meninger om is&#xE6;r fremtidige forhold. Inden klimaets genstablisiering var der mange der mente, at investering i rumteknologi og udforksning af alternative planeter var n&#xF8;dvendigt af b&#xE6;redygtighedsgrunde. Efter menneskeartens afkolonisering af diverse habitater og eliminering af pyromanien, har mange imidlertid tillid til at Gaia kan best&#xE5; i millioner af &#xE5;r. Man vil finde mange slyngplanter og hvaler, der mener at man f&#xF8;rst om hundrede millenia b&#xF8;r begynde at t&#xE6;nke galaktisk. I det hele taget er termen rumkolonisering blevet n&#xE6;rmest universelt droppet som et sprogligt artifakt fra tidligere tider. Sp&#xF8;rgsm&#xE5;let om plads og resourceforbrug var s&#xE6;rdeles omdiskuterede i slutten af 00&#x2019;erne. Menneskearten n&#xE5;ede ned p&#xE5; 6 milliarder og mens tidligere s&#xE5;kaldt ukrudt og invasive arter blev befriet fra apartheid og fik tildelt landrettigheder og nye &#xF8;kosystemer, hvor deres adf&#xE6;rd havde flere symbiotiske muligheder. Med den rette m&#xE6;ngde af nitrogen og f&#xE5; genetiske &#xE6;ndringer vise de fleste planter og insekter at kunne holde m&#xE6;ngden af spirende fr&#xF8; og kloner p&#xE5; et stabilt niveau. Det har generelt vist sig at v&#xE6;re muligt at holde den globale aktive biomasse p&#xE5; et stabilt niveau. I pattedyrene har man valgt at have en lind str&#xF8;m af babyer, der adopteres. Denne m&#xE6;ngde af populationstilf&#xF8;rsel tilpasses m&#xE6;ngden af eutaniserede organismer, der v&#xE6;lger at sige farvel. Det sker ofte at en halvtreds&#xE5;rig hjort efter en nat under den &#xE5;bne himmel beslutter sig for at tiden p&#xE5; den bl&#xE5; planet har v&#xE6;ret tilstr&#xE6;kkelig og v&#xE6;lger at lade sig hengive til skovbundens jord, hvor svampe og mikrobakterier byder den velkommen til endnu en cyklus i livets hjul. Arkiverne over dem der har valgt at sige farvel og dem der har bedt om at blive genoplivet om &#xE5;rtusinder er gemt p&#xE5; st&#xF8;jfrie servere i Yemens gravhaver.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,3 +1,9 @@
+# Introduction to Algorithms
+Danske noter til CLRS
+
+* [CLRS 2: Getting Started](./CLRS-2.html)
+
+
 # Computer Networks: A Top Down Approach
 Notes for Kurose & Ross 2017 by Kasper Rasmussen
 
@@ -12,3 +18,10 @@ Notes for Kurose & Ross 2017 by Kasper Rasmussen
 Notes for Rogers & Girolami 2017 by Kasper Rasmussen
 
 * [RG 1: Linear Modelling: A Least Squares Approach](01-LeastSquares.html)
+
+# Personal
+
+* [Log/diary of 2019](./log2019.txt)
+* [Doc A: Ecology](./doca.html)
+* [Jurema](./jurema.html)
+* [Cryonic's Guide to Gaia (fiktion)](./cryonics.html)
