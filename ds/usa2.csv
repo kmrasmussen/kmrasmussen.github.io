@@ -1,0 +1,51 @@
+state,id,occurences
+Alabama,1,13
+Alaska,2,27
+Arizona,4,32
+Arkansas,5,14
+California,6,89
+Colorado,8,29
+Connecticut,9,25
+Delaware,10,20
+Florida,12,64
+Georgia,13,41
+Hawaii,15,25
+Idaho,16,11
+Illinois,17,28
+Indiana,18,15
+Iowa,19,40
+Kansas,20,16
+Kentucky,21,24
+Louisiana,22,35
+Maine,23,22
+Maryland,24,31
+Massachusetts,25,87
+Michigan,26,31
+Minnesota,27,34
+Mississippi,28,82
+Missouri,29,18
+Montana,30,11
+Nebraska,31,13
+Nevada,32,30
+New Hampshire,33,27
+New Jersey,34,43
+New Mexico,35,23
+New York,36,199
+North Carolina,37,25
+North Dakota,38,8
+Ohio,39,42
+Oklahoma,40,18
+Oregon,41,13
+Pennsylvania,42,53
+Rhode Island,44,8
+South Carolina,45,26
+South Dakota,46,7
+Tennessee,47,19
+Texas,48,78
+Utah,49,20
+Vermont,50,27
+Virginia,51,71
+Washington,53,169
+West Virginia,54,15
+Wisconsin,55,21
+Wyoming,56,7
