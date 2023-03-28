@@ -13,8 +13,8 @@ We use TransformerLens which has out-of-the-box support for Pythia using the ```
 ## Result
 We produce a scatter plot where each point $(x,y)$ corresponds to a sequence-layer combination. For a given sequence and layer $x$ we have $T$ activation vectors from the output of the MLP at the layer. We compute the norm of these $T$ vectors and compute the mean. This value is $y$
 
-![alt text](https://raw.githubusercontent.com/kmrasmussen/kmrasmussen.github.io/master/share/llms/norms/mlp_l2_70m.png)
+![alt text](https://raw.githubusercontent.com/kmrasmussen/kmrasmussen.github.io/master/share/images/norms/mlp_l2_70m.png)
 
-![alt text](https://raw.githubusercontent.com/kmrasmussen/kmrasmussen.github.io/master/share/llms/norms/mlp_l2_160m.png)
-![alt text](https://raw.githubusercontent.com/kmrasmussen/kmrasmussen.github.io/master/share/llms/norms/mlp_l2_410m.png)
+![alt text](https://raw.githubusercontent.com/kmrasmussen/kmrasmussen.github.io/master/share/images/norms/mlp_l2_160m.png)
+![alt text](https://raw.githubusercontent.com/kmrasmussen/kmrasmussen.github.io/master/share/images/norms/mlp_l2_410m.png)
 
