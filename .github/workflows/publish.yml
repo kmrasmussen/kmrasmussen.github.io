@@ -2,24 +2,27 @@ name: Publish Quarto site
 
 on:
   push:
-    branches: [main]
+    branches: ["master"]         # <-- your branch is master, not main
+  workflow_dispatch:             # allows you to rerun manually from the Actions tab
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Check out repo
         uses: actions/checkout@v3
 
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2     # installs Quarto CLI
 
+      # -------------- RENDER -----------------
       - name: Render site
-        run: quarto render
+        run: quarto render                           # builds into _site/
 
-      - name: Publish to GitHub Pages
+      # -------------- PUBLISH ----------------
+      - name: Publish to gh-pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target: gh-pages
+          target: gh-pages                           # push _site/ to gh-pages branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
