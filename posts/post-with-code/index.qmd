@@ -1,0 +1,13 @@
+---
+title: "Post With Code"
+#author: "Harlow Malloc"
+date: "2025-05-31"
+categories: [news, code, analysis]
+image: "image.jpg"
+---
+
+Hey so is this markdown and all? $x = 2$, $\mathcal{T}$
+
+$$
+N(\delta, \mathcal{X}, d) \leq -Cp\log \delta
+$$
