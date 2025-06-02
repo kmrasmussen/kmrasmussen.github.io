@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-05-31">
+<meta name="dcterms.date" content="2025-06-02">
 
-<title>Post With Code – kasper munk rasmussen</title>
+<title>Notes on neural scaling and its value to biology – kasper munk rasmussen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ccb9157e0a92c26e3df68c421084884e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -144,11 +144,9 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Post With Code</h1>
+      <h1 class="title">Notes on neural scaling and its value to biology</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-                <div class="quarto-category">code</div>
-                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">stream-of-thought</div>
               </div>
                   </div>
   </div>
@@ -160,7 +158,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 31, 2025</p>
+        <p class="date">June 2, 2025</p>
       </div>
     </div>
     
@@ -179,12 +177,46 @@ window.Quarto = {
 
 
 
-<p>Hey so is this markdown and all? <span class="math inline">\(x = 2\)</span>, <span class="math inline">\(\mathcal{T}\)</span></p>
-<p><span class="math display">\[
-N(\delta, \mathcal{X}, d) \leq -Cp\log \delta
+<p>I saw a plot recently, showing the size of scRNA-seq datasets according to release date. Tahoe-100M includes 100M cells and at least looking at this plot, it looks like we have had an exponential increase in the size of the of the largest data sets.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tahoe100m.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Tahoe-100M</figcaption>
+</figure>
+</div>
+<p>Similar growth in dataset sizes have happened in genomics and elsewhere.</p>
+<p>A clear question that arises in this context is then: <em>Can we leverage the growth in data and convert it to value?</em></p>
+<p>For LLMs, the story has been that as compute costs have decreased, we (they) have been able to train on larger datasets, but the main point is that pre-training has allowed for actually useful products like chatbots.</p>
+<p>As pre-training has scaled there might have been diminishing returns, and statements by OpenAI regarding GPT-4.5 being the last in the series of large models can be seen as an indication that there has been a limit to pre-training, which has then been taken over by another regime of scaling RL. In any of these cases of scaling, the core is that we have found a way to make the investment in compute worth it, found a way to actually harness the data. Relevant to this question is neural scaling laws</p>
+<section id="neural-scaling-laws" class="level1">
+<h1>Neural Scaling laws</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="chinchilla1.png" class="img-fluid figure-img"></p>
+<figcaption>Chinchilla</figcaption>
+</figure>
+</div>
+<p>Modern machine learning has entered a paradigm, where scaling laws play an important role both in practice and at the theoretical level. In the regime where we are not bottlenecked by data (though scaling laws do not need this), it has been observed that there are relationships between data size <span class="math inline">\(D\)</span>, number of parameters in model <span class="math inline">\(P\)</span>, and floating points operations <span class="math inline">\(C\)</span> (compute), that are quite clean. Scaling laws are not restricted to these quantities, and people are actively investigating other relationships and quantities such as batch size and learning rate. One example of an observed scaling law is in the area of compute optimal training <span class="math display">\[
+L_C = E + c_D D^{-\alpha_D} + c_P P^{-\alpha_P}
 \]</span></p>
+<p>Consider the case where we are training a generative model <span class="math inline">\(q(x)\)</span> to minimize cross-entropy <span class="math inline">\(H(p_{data},q)\)</span> (maximise likelihood of model under data distribution). The cross-entropy can be divided into entropy of the data distribution and the KL-divergence of data distribution to model <span class="math display">\[
+H(p_{data},q) = H(p_{data}) + KL(p_{data}||q)
+\]</span> Scaling laws these are based on fitting parametric function to the data we have about training runs of different sizes etc, so there are limits to how seriously we should take a specific formula for scaling laws, but in this picture <span class="math inline">\(E\)</span> corresponds to the inherent entropy of the data distribution, the noise level.</p>
+<p>Looking at the scaling law, in this picture the KL divergence which is always non-negative is being driven to zero as we increase D and N. How fast depends on constants <span class="math inline">\(\alpha_D\)</span> and <span class="math inline">\(\alpha_P\)</span>. The image is now one where you decide how many FLOPs you are willing to use to train your model, and then determine the optimal number of parameters of your model and how much data you are going to train on.</p>
+<p>As has been clear for a long time, this of course ignores the fact that reducing the number of flops needed to reach your desired level of loss is a small part of the picture. After training when you want to make use of the models, bigger models are unwieldy, they require more expensive hardware accelerators to run them on, and ofc they require more flops to run, have higher latency (time to first token generated) and throughput (number of tokens generated per second) than smaller models.</p>
+<p>Just as importantly, the loss you reach in pre-training does not directly tell you how well you will perform on a downstream task you care about. After you have pre-trained your model, you want to post-train it, tuning it to do the thing you care about, like being a good chatbot or agent. Only once you have signs that lower loss is robustly correlated with better performance can you justify acquiring the flops and data needed to get a pre-trained model with the low loss that you want.</p>
+</section>
+<section id="the-value-of-performance" class="level1">
+<h1>The value of performance</h1>
+<p>In the context of LLMs, pre-training data is relatively abundant, even if there is a lot of work to do about ensuring quality of data. In the domain of post-training the abundance of data depends on the task, you might be limited in terms of quality preference data (which response from the chatbot is better, answer A or B?), but in some cases such as software and computer-use agents, given sufficient work, there is the possibility of generating abundant synthetic data, that is directly valuable, by letting agents interact with an environment in a way that closely mimicks the final use case.</p>
+<p>It seems that in biology, the picture becomes a bit more muddy. The performance of an LLM on a suite of benchmark can give at least a partial picture of the overall quality, and especially for benchmarks which aim to closely mimick a final use case, it gets close to being a description of the economic value of using the model.</p>
+<p>Computational biology methods often are diverse, some methods can give you certain information that can then be used in a variety of ways, and at some point downstream of all these methods being applied, and applied the right way, we might simplistically view it as there being derived some scientific understanding of value or changes of health care outcomes of value.</p>
+<p>I am trying to get at some kind of picture where given a certain model with a certain performance on a benchmark, such a model has a certain value for final use cases.</p>
+<p>There is an observed market, where chatbot providers provide subscriptions and user’s are paying for access to a model with a certain performance. We are not in a situation where model providers can smoothly trade-off inference cost with performance but this is not unimaginable at all. We could use this to make a simplistic picture of the situation. Assume we simplify performance to a scalar value <span class="math inline">\(E\)</span> even though it we cannot in practice, then we can now imagine for a fixed performance <span class="math inline">\(E\)</span> there exist demand and supply curves with equilibrium <span class="math inline">\(P_*^E\)</span> where <span class="math inline">\(Q^E_d(P) = Q^E_s(P)\)</span>. We are now having a collection of such markets indexed by performance, and a function <span class="math inline">\(P_*(E)\)</span>, being one way of describing the value of performance.</p>
+<p>Such a thing is hard to imagine for biology.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -259,7 +291,7 @@ N(\delta, \mathcal{X}, d) \leq -Cp\log \delta
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/kmrasmussen\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
