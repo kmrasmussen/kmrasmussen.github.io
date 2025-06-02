@@ -10,5 +10,8 @@
   },
   "posts/post-with-code/index.qmd": {
     "index.html": "2f0b25f9"
+  },
+  "posts/rambling001/index.qmd": {
+    "index.html": "fd2d5dd7"
   }
 }
