@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://kmrasmussen.github.io/posts/jaxadventure1/index.html</loc>
+    <lastmod>2025-06-03T07:13:02.625Z</lastmod>
+  </url>
+  <url>
     <loc>https://kmrasmussen.github.io/posts/rambling001/index.html</loc>
-    <lastmod>2025-06-02T09:49:43.843Z</lastmod>
+    <lastmod>2025-06-03T07:13:02.627Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/about.html</loc>
-    <lastmod>2025-06-02T09:49:43.842Z</lastmod>
+    <lastmod>2025-06-03T07:13:02.625Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/index.html</loc>
-    <lastmod>2025-06-02T09:49:43.842Z</lastmod>
+    <lastmod>2025-06-03T07:13:02.625Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/srfcmyconnectome/index.html</loc>
+    <lastmod>2025-06-03T07:13:02.629Z</lastmod>
   </url>
 </urlset>
