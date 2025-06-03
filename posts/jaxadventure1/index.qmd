@@ -1,0 +1,34 @@
+---
+title: "jax adventures 001"
+date: "2025-06-02"
+---
+
+I have been wanting to learn more Jax, so I will go on an a Jax adventure.
+
+```{python}
+import jax
+import jax.numpy as jnp
+import flax.linen as nn
+import matplotlib.pyplot as plt
+import numpy as np
+```
+These imports should be sufficient for what I'd need.
+
+I saw there is some kind of selfattention module in flax. Apparently Flax Linen is being taken over by Flax NNX
+
+```{python}
+from flax import nnx
+my_selfattention = nnx.MultiHeadAttention(
+  num_heads=2,
+  in_features=10,
+  qkv_features=6,
+  out_features=12,
+  decode=False,
+  rngs=nnx.Rngs(0)
+)
+```
+Okay now I have this object, I assume it is a nnx module. Usually then it has to be initialized with parameters separately, but why is there then an rngs associated with it?
+
+```{python}
+print(my_selfattention)
+```
