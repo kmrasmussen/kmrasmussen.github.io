@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -41,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-905433ffa22618bb005779f2b23c5ce0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,65 +67,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -150,8 +90,16 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./posts.html"> 
+<span class="menu-text">posts</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">about</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://docs.google.com/document/d/1VFBnafgNP0cJWy3w7oMU_4Nly-Rl_ryA3havvmMocwo/edit?usp=sharing" target="_blank"> 
+<span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/kmrasmussen/"> <i class="bi bi-github" role="img">
@@ -173,13 +121,13 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
+    <div class="quarto-title column-page">
       <h1 class="title">kasper munk rasmussen</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta column-page">
 
       
     
@@ -190,152 +138,27 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Zm1yaQ==">fmri <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaXRhdGlvbg==">meditation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV1cm9zY2llbmNl">neuroscience <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3RyZWFtLW9mLXRob3VnaHQ=">stream-of-thought <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
 
 
+<p>My name is Kasper. My interests include machine learning, LLMs, computational biology and computational neuroscience and AI safety. I did a Master’s degree in Computer Science from ETH Zürich, focusing mostly on machine learning, and subsequently I have worked as a full-stack software developer at a large Danish software consultancy on a Danish government project.. I am currently looking for a job that stokes my passion. Feel free to contact me.</p>
+<p><strong><a href="posts.html">Blog</a></strong> - Though I have a very disorganized and non-polished blog, you might get some sense of my interests. Feel free to reach out if you’d like to discuss any topic.</p>
+<section id="selected-projects" class="level2">
+<h2 class="anchored" data-anchor-id="selected-projects">Selected Projects</h2>
+<ul>
+<li><p><a href="https://intercebd.com">intercebd.com</a> - With intercebd.com you can collect and annotate and propose LLM responses. You can create SFT and DPO fine-tuning datasets, and use them with OpenAI’s fine-tuning service or push the datasets to Huggingface in ChatML format. Built with a FastAPI/Postgres backend and OpenRouter. <a href="https://github.com/kmrasmussen/intersebd">GitHub</a></p></li>
+<li><p>CS MSc Thesis: Understanding Features in Superposition in Transformer Language Models (<a href="https://kmrasmussen.com/files/pdf/thesis.pdf">PDF</a>): In 2023, concurrently with Anthropic’s first SAEs trained on larger LLMs, I formalized notions of superposition that allowed for falsifiable experiments, and showed restricted kinds of superposition in realistic pre-trained Transformer LLMs using linear probes and causal interventions. I was supervised by <a href="https://mega002.github.io/">Mor Geva</a>.</p></li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bWVkaXRhdGlvbg==" data-listing-date-sort="1748995200000" data-listing-file-modified-sort="1749119818366" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1779">
-<div class="thumbnail"><a href="./posts/thoughtadventures1/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/thoughtadventures1/index.html" class="no-external">meditation attractors</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWVkaXRhdGlvbg=='); return false;">meditation</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/thoughtadventures1/index.html" class="no-external">
-when doing breath meditation, mindwandering is an important notion. we can perhaps imagine that the mind follows a trajectory in some kind of space, <span class="math inline">\(x(t) \in \mathcal{X}\)</span>.…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/thoughtadventures1/index.html" class="no-external">
-<div class="listing-date">
-Jun 4, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1748908800000" data-listing-file-modified-sort="1749119818362" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1437">
-<div class="thumbnail"><a href="./posts/curiousadventures1/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/curiousadventures1/chromosomesizes.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/curiousadventures1/index.html" class="no-external">curious adventures 1</a>
-</h3>
-<div class="delink listing-description"><a href="./posts/curiousadventures1/index.html" class="no-external">
-what is the first thing i want to know? there is on the order of 100b neurons, people throw around the number 86 billion. okay, but there are not only neurons. how many…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/curiousadventures1/index.html" class="no-external">
-<div class="listing-date">
-Jun 3, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="c3RyZWFtLW9mLXRob3VnaHQ=" data-listing-date-sort="1748822400000" data-listing-file-modified-sort="1749119818364" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1044">
-<div class="thumbnail"><a href="./posts/rambling001/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/rambling001/tahoe100m.jpeg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/rambling001/index.html" class="no-external">Notes on neural scaling and its value to biology</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RyZWFtLW9mLXRob3VnaHQ='); return false;">stream-of-thought</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/rambling001/index.html" class="no-external">
-I saw a plot recently, showing the size of scRNA-seq datasets according to release date. Tahoe-100M includes 100M cells and at least looking at this plot, it looks like we…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/rambling001/index.html" class="no-external">
-<div class="listing-date">
-Jun 2, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="bmV1cm9zY2llbmNlJTJDZm1yaQ==" data-listing-date-sort="1748822400000" data-listing-file-modified-sort="1749119818366" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612">
-<div class="thumbnail"><a href="./posts/srfcmyconnectome/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/srfcmyconnectome/index.html" class="no-external">How does static FC compare across sessions in MyConnectome Project?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bmV1cm9zY2llbmNl'); return false;">neuroscience</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Zm1yaQ=='); return false;">fmri</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/srfcmyconnectome/index.html" class="no-external">
-One could imagine that one day it might be possible that a psychiatric patient could be undergoing some brain imaging sessions, and some computational model of the subject’s…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/srfcmyconnectome/index.html" class="no-external">
-<div class="listing-date">
-Jun 2, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1748822400000" data-listing-file-modified-sort="1749119818363" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
-<div class="thumbnail"><a href="./posts/jaxadventure1/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/jaxadventure1/index.html" class="no-external">jax adventures 001</a>
-</h3>
-<div class="delink listing-description"><a href="./posts/jaxadventure1/index.html" class="no-external">
-I have been wanting to learn more Jax, so I will go on an a Jax adventure.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/jaxadventure1/index.html" class="no-external">
-<div class="listing-date">
-Jun 2, 2025
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

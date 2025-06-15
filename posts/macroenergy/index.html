@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-02">
+<meta name="dcterms.date" content="2025-06-10">
 
-<title>How does static FC compare across sessions in MyConnectome Project? – kasper munk rasmussen</title>
+<title>macromacroscale – kasper munk rasmussen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -152,12 +123,8 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How does static FC compare across sessions in MyConnectome Project?</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">neuroscience</div>
-                <div class="quarto-category">fmri</div>
-              </div>
-                  </div>
+      <h1 class="title">macromacroscale</h1>
+                      </div>
   </div>
     
   
@@ -167,7 +134,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 2, 2025</p>
+        <p class="date">June 10, 2025</p>
       </div>
     </div>
     
@@ -186,28 +153,17 @@ window.Quarto = {
 
 
 
-<p>One could imagine that one day it might be possible that a psychiatric patient could be undergoing some brain imaging sessions, and some computational model of the subject’s brain will be used for guiding treatment.</p>
-<p>MyConnectome Project has a lot of brain imaging recording from the same person. Perhaps it could be used as a playground to ask some questions about what possibilities and limitations there may be for this idea of making a personalized brain model for a patient.</p>
-<section id="formal-notations-for-fmri" class="level1">
-<h1>Formal notations for fMRI</h1>
-<p>A common object in computational analyses of fMRI is the functional connectivity matrix. Very simplified, fMRI gives you at each timepoint a 3d matrix <span class="math inline">\(\omega_t \in \mathbb{R}^{W \times H \times D}\)</span>, describing “activity” at each coordinate. Therefore this <span class="math inline">\(v_t\)</span> is a quite high-dimensional object and is reduced by aggregating activity in different “brain areas”.</p>
-<p>We can think of <span class="math inline">\(\Omega = [W] \times [H] \times [D]\)</span> as the domain on which the original signal lives, where <span class="math inline">\([W] = \{0,...,W-1\}\)</span>.</p>
-<p>Now each <span class="math inline">\(v_t\)</span>, is a mapping <span class="math inline">\(v_t : \Omega \to \mathbb{R}\)</span>, from each point in the domain to a value of activity.</p>
-<p>This domain <span class="math inline">\(\Omega\)</span> obviously has some kind of structure, in some cases associate voxels with their Euclidean coordinates. This makes some sense, since we are considering <span class="math inline">\(\Omega\)</span> as the space of immediate signals. We might be trying to infer something about what the structure of the underlying brain state leading to a volume or a time series of volumes has been, but this brain state would then live in another space than the space of recorded volumes.</p>
-<p>An “atlas” or “parcellation” is a partition of <span class="math inline">\(\Omega\)</span>, a set of disjoint subsets. In some cases we might not require that the union of the sets constite <span class="math inline">\(\Omega\)</span>, because what if some coordinate is outside the brain? We get a volume that is a box but the brain is not a box. We write <span class="math inline">\(A_1, ..., A_N \subset \Omega\)</span> of disjoint subsets <span class="math inline">\(A_n\)</span> of the domain. N will often be in the order of 100.</p>
-<p>Now we can consider looking at a specific area, and consider only the parts of the signal in that area. <span class="math inline">\(v_t^m : A_n \to \mathbb{R}\)</span>. We can also consider the some method of aggregation: If an area <span class="math inline">\(A_n\)</span> has cardinality <span class="math inline">\(|A_n|\)</span>, then we can consider a the set <span class="math inline">\(\{v_t^n(\omega) \in \mathbb{R} | \forall \omega \in A_n \} \subseteq \mathbb{R}\)</span>, the set of all activities in that brain region at that time. One way of aggregating is to just take the mean, call it <span class="math inline">\(\mu^n_t \in \mathbb{R}\)</span>.</p>
-<p>Given some selection of an “atlas”, we say that we <em>parcellate a recording</em> <span class="math inline">\(\{v_t\}_{t\in[T]}\)</span> by converting it to parcellated time series <span class="math inline">\(\{\mu_t^n\}_{t\in [T],n\in[N]}\)</span>.</p>
-<p>The parcellated time series constitute a reduced representation of the recording, in practice it will be a matrix <span class="math inline">\(M \in \mathbb{R}^{T\times N}\)</span>.</p>
-<p>One hopes that this object <span class="math inline">\(M\)</span> captures something meaningful about the brain recording, by averaging over the smaller activities, that the noise is thereby reduced.</p>
-<p>One processing step that might be applied is to filter the frequencies. Since the our recording <span class="math inline">\(v_t\)</span> is made at discrete timesteps <span class="math inline">\(t\)</span>, that are made every <em>TR</em> (repetition time) seconds in the real world, where TR is then the sampling interval. This and other details, make it so that there are principled reasons for doing frequency filtering of the time series. We will assume that <span class="math inline">\(M\)</span> is consisting of processed time series.</p>
-<p>The basis of functional connectivity is to consider correlations between pairs <span class="math inline">\(\mu_t^n\)</span>, <span class="math inline">\(\mu_t^m\)</span>, for <span class="math inline">\(m,n \in [N]\)</span>, using standard Pearson correlation. That is we consider them as vectors in <span class="math inline">\(\mathbb{R}^T\)</span>.</p>
-<p>For two vectors <span class="math inline">\(x, y \in \mathbb{R}^T\)</span>, the Pearson correlation is the cosine distance between mean-centered versions. For two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the correlation is <span class="math display">\[
-\text{Corr}(X,Y) = \frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
-\]</span></p>
-<p>and Pearson’s rho is an</p>
+<p>it feels like plus and minus are essential, but it is multiplication and division thats the everything, when you consider scale. i love orders of magnitude, just tell me the oom, the sweet ooms, give me the oom and i will add and subtract the exponents.</p>
+<p>i love ooms, i love the idea that you just remember a usually two-digit number and you have some idea of the scale. the scale is what matters. looking at scale protects you from looking too narrow.</p>
+<p>Earth receives O(e17) watts from the sun. We are currently producing O(e12) watts</p>
+<p>if we look at the macroscale what is happening with the planet? we are producing more energy and making more computations and storing more data.</p>
+<p>it is clear by now that while CPUs and GPUs are both part of the new world, the FLOPs in GPUs are going to be extremely dominant. therefore to understand the scale of global compute it might be reasonable to just look at GPU compute. rough estimates from web searches, Claude gives a O(1e22) ops/second.</p>
+<p>what about materials. for simplicity we will consider the case of civilising mars. one aspects is minerals. consider looking at mars as this ball, there is some order and disorder at different levels. the different materials are hard to access, you might want to separate some mineral from other minerals etc. it seems some part of what will happen is this refining, this sorting of the minerals.</p>
+<p>they would try to sort the minerals on the planet, and they would also apply energy to purify the ores etc. in the beginning they might do some crude sorting but once they start purifying using energy where the heat is somehow disposed, they are changing the local entropy, by creating materials with fewer accessible microstates.</p>
+<p>why does civilisation do that? civilisation changes the configuration (the point in the configuration space of the solar system.) if there was no intelligence, the area of phase space explored would be very different than what it is with civilisation.</p>
+<p>in no-intelligence, the solar system emits the radiation and it just escapes the solar system. with civilisation the energy is being harnessed to build up chemical potential energy with higher free energy.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

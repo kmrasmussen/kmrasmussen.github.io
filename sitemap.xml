@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kmrasmussen.github.io/posts/jaxadventure1/index.html</loc>
-    <lastmod>2025-06-05T10:36:58.363Z</lastmod>
+    <loc>https://kmrasmussen.github.io/posts/thoughtadventures1/index.html</loc>
+    <lastmod>2025-06-15T07:57:22.645Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/posts/curiousadventures1/index.html</loc>
-    <lastmod>2025-06-05T10:36:58.362Z</lastmod>
+    <lastmod>2025-06-15T07:57:22.641Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/posts/rambling001/index.html</loc>
-    <lastmod>2025-06-05T10:36:58.364Z</lastmod>
-  </url>
-  <url>
-    <loc>https://kmrasmussen.github.io/about.html</loc>
-    <lastmod>2025-06-05T10:36:58.361Z</lastmod>
+    <lastmod>2025-06-15T07:57:22.643Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/index.html</loc>
-    <lastmod>2025-06-05T10:36:58.361Z</lastmod>
+    <lastmod>2025-06-15T07:57:22.640Z</lastmod>
   </url>
   <url>
-    <loc>https://kmrasmussen.github.io/posts/thoughtadventures1/index.html</loc>
-    <lastmod>2025-06-05T10:36:58.366Z</lastmod>
+    <loc>https://kmrasmussen.github.io/about.html</loc>
+    <lastmod>2025-06-15T07:57:22.640Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts.html</loc>
+    <lastmod>2025-06-15T07:57:22.640Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/jaxadventure1/index.html</loc>
+    <lastmod>2025-06-15T07:57:22.642Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/posts/srfcmyconnectome/index.html</loc>
-    <lastmod>2025-06-05T10:36:58.366Z</lastmod>
+    <lastmod>2025-06-15T07:57:22.645Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/macroenergy/index.html</loc>
+    <lastmod>2025-06-15T07:57:22.642Z</lastmod>
   </url>
 </urlset>
