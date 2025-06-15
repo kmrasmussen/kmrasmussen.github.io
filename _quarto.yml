@@ -5,7 +5,11 @@ website:
   title: "kasper munk rasmussen"
   navbar:
     right:
+      - posts.qmd
       - about.qmd
+      - text: CV
+        target: "_blank"
+        href: https://docs.google.com/document/d/1VFBnafgNP0cJWy3w7oMU_4Nly-Rl_ryA3havvmMocwo/edit?usp=sharing
       - icon: github
         href: https://github.com/kmrasmussen/
       - icon: twitter

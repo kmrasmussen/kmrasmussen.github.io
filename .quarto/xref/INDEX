@@ -28,5 +28,17 @@
   },
   "posts/thoughtadventures1/index.qmd": {
     "index.html": "2e61ce8e"
+  },
+  "posts/biofreelunches/index.qmd": {
+    "index.html": "a052f6ed"
+  },
+  "posts/macroenergy/index.qmd": {
+    "index.html": "e67c8644"
+  },
+  "posts.qmd": {
+    "posts.html": "8b0aa360"
+  },
+  "indexold.qmd": {
+    "indexold.html": "7077de73"
   }
 }

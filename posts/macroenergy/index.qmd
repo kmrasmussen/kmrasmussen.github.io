@@ -1,0 +1,22 @@
+---
+title: "macromacroscale"
+date: "2025-06-10"
+---
+
+it feels like plus and minus are essential, but it is multiplication and division thats the everything, when you consider scale. i love orders of magnitude, just tell me the oom, the sweet ooms, give me the oom and i will add and subtract the exponents.
+
+i love ooms, i love the idea that you just remember a usually two-digit number and you have some idea of the scale. the scale is what matters. looking at scale protects you from looking too narrow.
+
+Earth receives O(e17) watts from the sun. We are currently producing O(e12) watts
+
+if we look at the macroscale what is happening with the planet? we are producing more energy and making more computations and storing more data.
+
+it is clear by now that while CPUs and GPUs are both part of the new world, the FLOPs in GPUs are going to be extremely dominant. therefore to understand the scale of global compute it might be reasonable to just look at GPU compute. rough estimates from web searches, Claude gives a O(1e22) ops/second.
+
+what about materials. for simplicity we will consider the case of civilising mars. one aspects is minerals. consider looking at mars as this ball, there is some order and disorder at different levels. the different materials are hard to access, you might want to separate some mineral from other minerals etc. it seems some part of what will happen is this refining, this sorting of the minerals.
+
+they would try to sort the minerals on the planet, and they would also apply energy to purify the ores etc. in the beginning they might do some crude sorting but once they start purifying using energy where the heat is somehow disposed, they are changing the local entropy, by creating materials with fewer accessible microstates.
+
+why does civilisation do that? civilisation changes the configuration (the point in the configuration space of the solar system.) if there was no intelligence, the area of phase space explored would be very different than what it is with civilisation.
+
+in no-intelligence, the solar system emits the radiation and it just escapes the solar system. with civilisation the energy is being harnessed to build up chemical potential energy with higher free energy.
