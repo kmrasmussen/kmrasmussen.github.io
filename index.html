@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -67,7 +69,93 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-recent-posts .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-recent-posts'] = new List('listing-recent-posts', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-videos .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-image','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-image","listing-date","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-videos'] = new List('listing-videos', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -108,6 +196,16 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://x.com/chopwatercarry"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:kasmura@gmail.com"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/kasper-munk-rasmussen-37711a2a0"> <i class="bi bi-linkedin" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -154,8 +252,138 @@ ul.task-list li input[type="checkbox"] {
 <li><p><a href="https://intercebd.com">intercebd.com</a> - With intercebd.com you can collect and annotate and propose LLM responses. You can create SFT and DPO fine-tuning datasets, and use them with OpenAI’s fine-tuning service or push the datasets to Huggingface in ChatML format. Built with a FastAPI/Postgres backend and OpenRouter. <a href="https://github.com/kmrasmussen/intersebd">GitHub</a></p></li>
 <li><p>CS MSc Thesis: Understanding Features in Superposition in Transformer Language Models (<a href="https://kmrasmussen.com/files/pdf/thesis.pdf">PDF</a>): In 2023, concurrently with Anthropic’s first SAEs trained on larger LLMs, I formalized notions of superposition that allowed for falsifiable experiments, and showed restricted kinds of superposition in realistic pre-trained Transformer LLMs using linear probes and causal interventions. I was supervised by <a href="https://mega002.github.io/">Mor Geva</a>.</p></li>
 </ul>
+</section>
+<section id="videos" class="level2">
+<h2 class="anchored" data-anchor-id="videos">Videos</h2>
+<p>I am exploring streaming my screen, talking about machine learning and programming.</p>
+<div id="listing-videos" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="bWw=" data-listing-date-sort="1750032000000">
+<a href="https://youtu.be/aMIeT4w6DyE" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="https://img.youtube.com/vi/aMIeT4w6DyE/hqdefault.jpg" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Basic Math of Supervised Deep Learning with Cross-Entropy
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWw='); return false;">ml</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jun 16, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="recent-posts" class="level2">
+<h2 class="anchored" data-anchor-id="recent-posts">Recent posts</h2>
+<p><a href="posts.html" class="btn btn-primary" role="button">See all posts →</a></p>
+<div id="listing-recent-posts" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1749513600000" data-listing-file-modified-sort="1750082592436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="363">
+<div class="thumbnail"><a href="./posts/macroenergy/index.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/macroenergy/index.html" class="no-external">macromacroscale</a>
+</h3>
+<div class="delink listing-description"><a href="./posts/macroenergy/index.html" class="no-external">
+it feels like plus and minus are essential, but it is multiplication and division thats the everything, when you consider scale. i love orders of magnitude, just tell me the…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/macroenergy/index.html" class="no-external">
+<div class="listing-date">
+Jun 10, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="bWVkaXRhdGlvbg==" data-listing-date-sort="1748995200000" data-listing-file-modified-sort="1750082592439" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1779">
+<div class="thumbnail"><a href="./posts/thoughtadventures1/index.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/thoughtadventures1/index.html" class="no-external">meditation attractors</a>
+</h3>
+<div class="delink listing-description"><a href="./posts/thoughtadventures1/index.html" class="no-external">
+when doing breath meditation, mindwandering is an important notion. we can perhaps imagine that the mind follows a trajectory in some kind of space, <span class="math inline">\(x(t) \in \mathcal{X}\)</span>.…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/thoughtadventures1/index.html" class="no-external">
+<div class="listing-date">
+Jun 4, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1748908800000" data-listing-file-modified-sort="1750082592435" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1437">
+<div class="thumbnail"><a href="./posts/curiousadventures1/index.html" class="no-external">
+
+<p class="card-img-top"><img src="posts/curiousadventures1/chromosomesizes.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/curiousadventures1/index.html" class="no-external">curious adventures 1</a>
+</h3>
+<div class="delink listing-description"><a href="./posts/curiousadventures1/index.html" class="no-external">
+what is the first thing i want to know? there is on the order of 100b neurons, people throw around the number 86 billion. okay, but there are not only neurons. how many…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/curiousadventures1/index.html" class="no-external">
+<div class="listing-date">
+Jun 3, 2025
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="education" class="level2">
+<h2 class="anchored" data-anchor-id="education">Education</h2>
+<section id="master-of-computer-science-eth-zürich" class="level3">
+<h3 class="anchored" data-anchor-id="master-of-computer-science-eth-zürich">Master of Computer Science, ETH Zürich</h3>
+<p><em>09/2021 - 11/2023</em></p>
+<ul>
+<li>Major in Machine Intelligence, minor in Theoretical Computer Science</li>
+<li>Electives focused on neuroscience and bioinformatics</li>
+<li>Thesis (top grade): Understanding Features in Superposition in Transformer Language Models</li>
+<li>GPA: 5.4/6</li>
+</ul>
+</section>
+<section id="bachelor-of-computer-science-university-of-copenhagen" class="level3">
+<h3 class="anchored" data-anchor-id="bachelor-of-computer-science-university-of-copenhagen">Bachelor of Computer Science, University of Copenhagen</h3>
+<p><em>09/2018 - 06/2021</em></p>
+<ul>
+<li>Data Science specialization</li>
+<li>Thesis (top grade): Unsupervised learning of objects and concepts with a focus on medical images</li>
+<li>GPA: 11.6/12</li>
+</ul>
 
 
+
+</section>
 </section>
 
 </main> <!-- /main -->
