@@ -14,6 +14,10 @@ website:
         href: https://github.com/kmrasmussen/
       - icon: twitter
         href: https://x.com/chopwatercarry
+      - icon: envelope
+        href: "mailto:kasmura@gmail.com"
+      - icon: linkedin
+        href: https://www.linkedin.com/in/kasper-munk-rasmussen-37711a2a0
 format:
   html:
     theme:

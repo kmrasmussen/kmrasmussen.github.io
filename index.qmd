@@ -2,6 +2,25 @@
 title: "kasper munk rasmussen"
 page-layout: full
 title-block-banner: true
+
+listing:                       # ← only one key
+  - id: recent-posts           # ➊ posts feed
+    contents: posts
+    sort: "date desc"
+    max-items: 3
+    type: default
+    categories: false
+    sort-ui: false
+    filter-ui: false
+
+  - id: videos                 # ➋ videos grid
+    contents: ./_videos.yml
+    type: grid
+    grid-columns: 3
+    image-height: "180px"
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: false
 ---
 
 My name is Kasper. My interests include machine learning, LLMs, computational biology and computational neuroscience and AI safety. I did a Master's degree in Computer Science from ETH Zürich, focusing mostly on machine learning, and subsequently I have worked as a full-stack software developer at a large Danish software consultancy on a Danish government project.. I am currently looking for a job that stokes my passion. Feel free to contact me.
@@ -15,3 +34,34 @@ My name is Kasper. My interests include machine learning, LLMs, computational bi
 * CS MSc Thesis: Understanding Features in
 Superposition in Transformer
 Language Models ([PDF](https://kmrasmussen.com/files/pdf/thesis.pdf)): In 2023, concurrently with Anthropic's first SAEs trained on larger LLMs, I formalized notions of superposition that allowed for falsifiable experiments, and showed restricted kinds of superposition in realistic pre-trained Transformer LLMs using linear probes and causal interventions. I was supervised by [Mor Geva](https://mega002.github.io/).
+
+
+
+## Videos
+I am exploring streaming my screen, talking about machine learning and programming.
+
+::: {#videos}
+:::
+
+## Recent posts
+[See all posts →](posts.html){.btn .btn-primary role="button"}
+
+::: {#recent-posts}
+:::
+
+## Education
+
+### Master of Computer Science, ETH Zürich
+*09/2021 - 11/2023*
+
+* Major in Machine Intelligence, minor in Theoretical Computer Science
+* Electives focused on neuroscience and bioinformatics
+* Thesis (top grade): Understanding Features in Superposition in Transformer Language Models
+* GPA: 5.4/6
+
+### Bachelor of Computer Science, University of Copenhagen
+*09/2018 - 06/2021*
+
+* Data Science specialization
+* Thesis (top grade): Unsupervised learning of objects and concepts with a focus on medical images
+* GPA: 11.6/12

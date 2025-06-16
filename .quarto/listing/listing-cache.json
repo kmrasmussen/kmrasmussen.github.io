@@ -1,12 +1,11 @@
 {
   "listingMap": {
     "index.qmd": [
-      "posts"
+      "posts",
+      "_videos.yml",
+      "./_videos.yml"
     ],
     "posts.qmd": [
-      "posts"
-    ],
-    "indexold.qmd": [
       "posts"
     ]
   }
