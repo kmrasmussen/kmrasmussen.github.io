@@ -1,7 +1,13 @@
 - title: "Basic Math of Supervised Deep Learning with Cross-Entropy"
   path: https://youtu.be/aMIeT4w6DyE
   image: https://img.youtube.com/vi/aMIeT4w6DyE/hqdefault.jpg
-  date: 2025-06-16             # lets you sort newest-first
+  date: 2025-06-16
   categories: [ml]
 
-# add more videos the same way — just swap the YouTube ID
+- title: "How a Transformer LLM works - Part 1 Residual stream and predictive distribution"
+  path: hhttps://www.youtube.com/watch?v=5bG1nJPsKOM
+  image: https://img.youtube.com/vi/5bG1nJPsKOM/hqdefault.jpg
+  date: 2025-06-17
+  categories: [ml, llm]
+
+
