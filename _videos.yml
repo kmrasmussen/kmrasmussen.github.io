@@ -10,4 +10,8 @@
   date: 2025-06-17
   categories: [ml, llm]
 
-
+- title: "ML Paper Walkthrough: CodeLutra Boosting LLM Code Generation via Preference-guided Refinement"
+  path: https://youtu.be/6_KPpxJSRzM
+  image: https://img.youtube.com/vi/6_KPpxJSRzM/hqdefault.jpg
+  date: 2024-09-14
+  categories: [ml, llm]
