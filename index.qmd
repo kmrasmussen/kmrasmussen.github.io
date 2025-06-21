@@ -65,3 +65,17 @@ I am exploring streaming my screen, talking about machine learning and programmi
 * Data Science specialization
 * Thesis (top grade): Unsupervised learning of objects and concepts with a focus on medical images
 * GPA: 11.6/12
+
+## Work experience
+
+### AI consultant, Tiimo
+*09/2024 -*
+
+- Helped [Tiimo](https://tiimoapp.com/) use LLM in new features
+- OpenAI API, structured generation, evals, FastAPI, dockerization
+
+### Software Developer, Netcompany
+*03/2024 - 02/2025*
+
+- [Borger.dk](https://www.borger.dk/), the most visited Danish government website.
+- Full-stack, C#, Sitecore, HTML/JS, Azure DevOps, Git, agile
