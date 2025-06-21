@@ -63,6 +63,13 @@
     "text": "Education\n\nMaster of Computer Science, ETH Zürich\n09/2021 - 11/2023\n\nMajor in Machine Intelligence, minor in Theoretical Computer Science\nElectives focused on neuroscience and bioinformatics\nThesis (top grade): Understanding Features in Superposition in Transformer Language Models\nGPA: 5.4/6\n\n\n\nBachelor of Computer Science, University of Copenhagen\n09/2018 - 06/2021\n\nData Science specialization\nThesis (top grade): Unsupervised learning of objects and concepts with a focus on medical images\nGPA: 11.6/12"
   },
   {
+    "objectID": "index.html#work-experience",
+    "href": "index.html#work-experience",
+    "title": "kasper munk rasmussen",
+    "section": "Work experience",
+    "text": "Work experience\n\nAI consultant, Tiimo\n09/2024 -\n\nHelped Tiimo use LLM in new features\nOpenAI API, structured generation, evals, FastAPI, dockerization\n\n\n\nSoftware Developer, Netcompany\n03/2024 - 02/2025\n\nBorger.dk, the most visited Danish government website.\nFull-stack, C#, Sitecore, HTML/JS, Azure DevOps, Git, agile"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "about",
