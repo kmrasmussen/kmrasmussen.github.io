@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kmrasmussen.github.io/posts/thoughtadventures1/index.html</loc>
-    <lastmod>2025-06-21T18:27:41.631Z</lastmod>
-  </url>
-  <url>
-    <loc>https://kmrasmussen.github.io/posts/curiousadventures1/index.html</loc>
-    <lastmod>2025-06-21T18:27:41.627Z</lastmod>
-  </url>
-  <url>
-    <loc>https://kmrasmussen.github.io/posts/rambling001/index.html</loc>
-    <lastmod>2025-06-21T18:27:41.629Z</lastmod>
+    <loc>https://kmrasmussen.github.io/posts.html</loc>
+    <lastmod>2025-07-05T12:32:32.232Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/index.html</loc>
-    <lastmod>2025-06-21T18:27:41.626Z</lastmod>
+    <lastmod>2025-07-05T12:32:32.232Z</lastmod>
   </url>
   <url>
-    <loc>https://kmrasmussen.github.io/about.html</loc>
-    <lastmod>2025-06-21T18:27:41.626Z</lastmod>
+    <loc>https://kmrasmussen.github.io/posts/rambling001/index.html</loc>
+    <lastmod>2025-07-05T12:32:32.235Z</lastmod>
   </url>
   <url>
-    <loc>https://kmrasmussen.github.io/posts.html</loc>
-    <lastmod>2025-06-21T18:27:41.626Z</lastmod>
+    <loc>https://kmrasmussen.github.io/posts/thelongtail/thelongtailraw.html</loc>
+    <lastmod>2025-07-05T12:32:32.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/stopconversation/index.html</loc>
+    <lastmod>2025-07-05T12:32:32.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/writingdrill1/index.html</loc>
+    <lastmod>2025-07-05T12:32:32.238Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/posts/jaxadventure1/index.html</loc>
-    <lastmod>2025-06-21T18:27:41.628Z</lastmod>
+    <lastmod>2025-07-05T12:32:32.233Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/thoughtadventures1/index.html</loc>
+    <lastmod>2025-07-05T12:32:32.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/curiousadventures1/index.html</loc>
+    <lastmod>2025-07-05T12:32:32.233Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/posts/srfcmyconnectome/index.html</loc>
-    <lastmod>2025-06-21T18:27:41.631Z</lastmod>
+    <lastmod>2025-07-05T12:32:32.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/posts/thelongtail/index.html</loc>
+    <lastmod>2025-07-05T12:32:32.237Z</lastmod>
   </url>
   <url>
     <loc>https://kmrasmussen.github.io/posts/macroenergy/index.html</loc>
-    <lastmod>2025-06-21T18:27:41.628Z</lastmod>
+    <lastmod>2025-07-05T12:32:32.233Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kmrasmussen.github.io/about.html</loc>
+    <lastmod>2025-07-05T12:32:32.232Z</lastmod>
   </url>
 </urlset>

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-03">
 
-<title>curious adventures 1 – kasper munk rasmussen</title>
+<title>thelongtailraw – kasper munk rasmussen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -159,29 +129,7 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">curious adventures 1</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">June 3, 2025</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block"></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -191,106 +139,9 @@ window.Quarto = {
 
 
 
-
-<section id="brain-things" class="level1">
-<h1>brain things</h1>
-<p>what is the first thing i want to know? there is on the order of 100b neurons, people throw around the number 86 billion. okay, but there are not only neurons. how many non-neurons are there? okay, interesting, 4o says also O(100b) glial cells.</p>
-<p>what are glial cells? okay it looks like at least in the brain, i need mainly to know 3 types of glial cells:</p>
-<ul>
-<li>50% oligodendrocytes - a type of glial cell that wraps around the axon forming myelin, speeding up electric signaling.</li>
-<li>30% astro - maintain extracellular matrix, blood flow</li>
-<li>10% microglia - immune cells, pruning synapses, remove debris</li>
-</ul>
-<p>so i guess astrocytes are the most important.</p>
-<ul>
-<li>they clear excess neurotransmitters like glutamate, so there is not too much which would result in overactivation of the brain, so that seems quite important for even computation.</li>
-<li>when a brain region becomes active the astrocytes sense changes in neurotransmitters and signal to blood vessels to dilate, crazy. called <em>neurovascular coupling</em>, important for understanding fMRI.</li>
-<li>release signals that influence synapses, so strength, learning, plasticity</li>
-<li>can become “reactive astrocytes” in infection, alzheimers etc.</li>
-</ul>
-<p>okay that is enough for me for now about astrocytes. and the oligodendrocytes kind of makes sense to me not going deeper with that.</p>
-<p>there is 1e8 neurons and 1e8 glial cells. but like oligodendrocytes are forming myelin always or also different things, and in that case is one oligodendrocyte only responsible for one axon, and how many axons? okay oligodendrocytes myelinate multiple axons. 1 axon per neuron but they can branch. estimated that 50% of the axons in the brain are myelinated but depends on regions. okay the primary difference is gray and white matter: 90% of white, and maybe 20% of gray.</p>
-<p>but i did not learn what white and gray is. okay, it sounds a bit bullshitish, not easy enough to get a clear answer. roughly</p>
-<ul>
-<li>gray matter: high number of somas per volume</li>
-<li>white matter: low number of somas per volume AND high number of myelinated axons per volume</li>
-</ul>
-<p>at least i will run with this. so now i am getting a picture of the brain as having some kind of volume in R^3 and there is some kind of neuron soma count measure that describes how many somas are in a specific region, and then abstracting it as a density even though not continous giving neuron soma density. And then there is an axon count measure and axon count density and myelinated axon count measure. And these are the interesting things, and gray and white matter are simplifications.</p>
-<p>(okay, just got distracted because presented 4o that i wanted to think in terms of measures and it wanted to go off with fiber bundles. so learned that the tangent bundle is the a disjoiint union of the tangent spaces for each point on the manifold, disjoint in the sense that you keep track of which point it came from. so disjoint union is a bit like enumerate in python, you keep an index.)</p>
-<p>okay so where were we. we have neurons with somas and axons and glial cells especially astrocytes and oligodendrocytes. so we are still looking at it from afar. something about energy. how much energy is it using and are neurons using more energy than glial cells?</p>
-<ul>
-<li>the energy usage is on the order of 20 W and roughly 20% of the brain’s energy.</li>
-<li>neurons use 75% and glial cells then less than 20%.</li>
-</ul>
-<p>the reason why they use relatively much has to do with action transmission (ion gradients, glutamate release/reuptake)</p>
-<p>okay so one thing is the density of neurons and the density of glial cells and their relationships. we saw that the notion of gray matter means that neuron soma density is not uniform, is the astrocytes the same way. ok it sounds like i should think of astrocyte density being related to neuron density, because neurons “need” astrocytes, so more neurons need more astrocytes. so astrocyte denisty is not uniform. locally it can be viewed a bit as a regular lattice.</p>
-<p>okay i wonder how one can know these kind of things. spatial transcriptomics of neuronal cell cultures? some methods can do single cells RNA others do aggregate per “spot”? Okay it sounds like you take a mouse brain flash freeze it make a slice for example from the cortex (barbaric unless it already was dying) of 10 <span class="math inline">\(\mu m\)</span> (mu means micro so one 1 <span class="math inline">\(\mu m\)</span> is 1e-6m).</p>
-<ul>
-<li>The soma of a neuron is on the order of 10 micrometers, 1e-5 meters.</li>
-<li>same for astrocytes 10 micrometers, but that is the cell body, it has “processes extending” that are on the order of 100 micrometers which would be its radius.</li>
-</ul>
-<p>hmm, i am starting to think about how i should imagine it. if i have a cube with sidelength 100 micrometers, giving what proportion of the volume is taken up by different things? 4o says</p>
-<ul>
-<li>10% neuron somas</li>
-<li>10* glial somas</li>
-<li>45% glial and neuron processes (dendrites axons etc)</li>
-<li>20% extracellular space with water and ions and neurotransmitters etc</li>
-<li>5% capillaries</li>
-</ul>
-<p>and they form some kind of soft tissue.</p>
-<p>ok that was quite a high degree of “exploitation” in this line, a lot of focus on astrocytes etc. i will continue a bit</p>
-<p>one of the things we learned was 75% of energy going to neurons because of spiking. i can imagine energy requirements changing over time, after all that is what fmri is about, but are there some regions that are just more energy intesive, and is that mostly predicted by neuron soma density?</p>
-<p>first, like how can we measure? FDG is a glucose that is modified to emit positrons and can then image with PET-scan. Cortex, especially frontal and visual cortex, uses a lot of glucose.</p>
-</section>
-<section id="inside-cells" class="level1">
-<h1>inside cells</h1>
-<p>so we have these cels they are maybe 10 micrometers? what’s going on inside there. there is a nucleus, i guess it is like a ball. it is roughly 5 micrometers diameter, it takes up 10% of the volume. does that match? yeah it is okay. and the mitrochondria also 10% only one nucleus and multiple mitochrondira?</p>
-<ul>
-<li>order of 100 to 1000 mitochrondria per cell</li>
-<li>shaped like 0.5x2 micrometers</li>
-</ul>
-<p>great and inside the nucleus, the chromatin fills up quite well even though not taking up all the volume</p>
-<ul>
-<li>order of 10-100 chromosomes, 46 for humans</li>
-<li>3e9 basepairs total, varying from 50 to 250 million base pairs per chromosome, decreasing pretty linearly with rank</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chromosomesizes.png" class="img-fluid figure-img"></p>
-<figcaption>Chromosome lengths</figcaption>
-</figure>
-</div>
-<ul>
-<li>okay and it is like this: 8 histone proteins form as 2x2x2 box and order of 100 base pairs wrap around it</li>
-<li>on one side is a H1 histone where the dna enters and exits</li>
-<li>order of 10-100 base pairs of linker dna to next structure</li>
-<li>the structures are called nucleosomes</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="nucleosome.jpg" class="img-fluid figure-img"></p>
-<figcaption>Nucleosome cartoon</figcaption>
-</figure>
-</div>
-<ul>
-<li><p>the word chromatin somehow refers to all of these nucleosomes and some other proteins etc not super clear</p></li>
-<li><p>word chromosome also being used a bit weird, focused on when the cell is diving etc, but also numbering them. so each chromosome there is “chromatin” for that chromosome somewhere in the cell, seems you can say “the chromatin for chromosome 11”</p></li>
-<li><p>there are 3 RNA-polymerases, it is number 2 that is doing all the the transcription for real proteins.</p></li>
-<li><p>can transcribe sections that are longer than is on a single nucleosome so there is a crazy dance with other protein complexes like FACT etc that unfold the nucleosome etc.</p></li>
-<li><p>multiple different RNA-polymerase-2’s can be transcribing at the same time at the same interval</p></li>
-<li><p>speed is O(1K) basepairs per minute, can vary by factor 3x depending</p></li>
-<li><p>O(50K) RNA-polymerase-2’s inside the nucleus at a single time. O(15K) transcribing at a given time.</p></li>
-<li><p>O(1e6) transcripts in the cell at given time, O(1e10) proteins in the cell at given time, one transcript can be translated to protein multiple times</p></li>
-<li><p>30% of the volume in cytoplasma taken up by macromoleucles like RNA and protein. 50% is protein, 25% RNA. I am confused concluded that proteins were much more abundant? it’s because RNA is much larger, nucleotides are bigger than amino acids. think 4o might be starting to hallucinate now that i am inquiring about this.</p></li>
-<li><p>okay amino acids are O(50) Å^3 (1Å = 0.1 nanometer, 1e-10 meters) and nucleotides O(500) so one order of magnitude difference, but we had 3 ooms difference in abundance of rna and protein.</p></li>
-<li><p>okay seems it is because of rRNA in ribosomes very huge, and makes up 80% of RNA in the cell</p></li>
-<li><p>the ribosome is made up with a core part of it being rRNA that is why it is huge.</p></li>
-<li><p>translation rate is O(10) AA/s, 30-60 seconds per protein typical</p></li>
-<li><p>O(1e6) ribosomes in the cell, ~20 nm in diameter, ~7K nucleotides for the rRNA.</p></li>
-</ul>
+<p>It is commonly said that the advancement of AI and language models might result in general intelligence. A system that is able to do and learn whatever human beings can do and do it as well as humans and thereby offer the possibility of automating a vast amount of economic work. One thing that is interesting in this area is the notion of data distributions. Let me give you an example. Consider the words that is being used in the medical profession. I recently learned that companies such as the Danish company Corti can make a business out of speech to text models that are good at understanding specifically medical language because it is possible to make models that specialize in understanding such language because of the variety of terms used among medical professions. The people I talked to described how certain terms would be so uncommon in the generally available web data that the models would not easily learn from these things. They would not easily learn to understand these kinds of words and this would be a limitation for their performance. Thus there was a business opportunity to understand the data distribution better and make sure that the systems were accurately tuned to this distribution. We can imagine a power law distribution where some words are very common and some words are less common and a long tail of words that are very rare. Furthermore we can imagine that a phenomenon like this where it is important to understand quite a long tail of the data distribution exists in many many different contexts in society, in human social networks, in job functions and so on. This has also commonly been noted in the context of for example self-driving cars where the edge cases form this kind of tail and limits the robustness of systems. In a similar way we can imagine that transcription services like the ones mentioned are also at risk of not being robust if we do not sufficiently cover the tail. Okay, now I presented a bit of a picture of such a long tail of data and I started by talking about the idea of AGI that will understand things as well as humans across the board. And what is the third relation here? Well, first we can note that automating large chunks of the society in terms of the economically valuable work, if that is a goal for some, for which there are good arguments and good arguments against which is out of scope for this post, then we should note that it must involve capturing a large set of distributions with long tails. Then furthermore there are two different ways to imagine this. One is to imagine that there is a general system which is simply smart across the board and has all this knowledge and then go into these different industries and automate labor. The other is one where we have some system that has the general understanding, general intelligence, just as a smart undergrad might go into a specific research field or a specific industry job and learn the necessary knowledge and details and from there provide value economically. It is worth noting, I think, that for the past years since CHAT-GPT has come out, most people’s experience of general AI systems has been systems that are broadly knowledgeable and furthermore they have both been used by users and often also presented by the ones offering the CHAT services as systems that have this very broad knowledge and one of the ways that the companies have presented the limitations has been to say that it can make mistakes because it is hard to quantify and make precise the cut-offs not in time but in depth on its time. The cut-offs not in time but in depth on its topics. It is not easy to say it understands certain topics to this level of depth but if you go into expert knowledge then not as well. So, while this is not necessarily an argument about what should be, it is interesting to see that we can describe the current situation of AI systems and their use case and the way that large companies and the way that a large part of the population maybe will perceive it will be that there are systems that will just have all this in-depth deep knowledge and it is also commonly, it seems, viewed as a source of frustration that users are using the systems and they’re facing the limitations. They’re banging towards a wall and this wall is hard to, it has a fluid character where the research on making language models able to know what they know and know what they do not know and this topic is still not well understood and also in practice they’re not good solutions. So, what I wanted to highlight at that point was that there is some impression that both developers, product developers and product users have so far as to the solution to this long tail problem in that they expect systems that cover the long tail and furthermore they expect a single system to cover this. Even if we go away from this description we might think about actual solutions to this thing and I would argue that we have theoretical reasons to want to emphasize the fact that we can only cover the tail by having the data. This might seem obvious but it is also something that might be underappreciated in its consequences. It means that even if it is possible to develop a general intelligence and algorithms for things that resemble continual learning that will allow systems to learn the data from this tail, it still means that there will have to be the work of acquiring this data from the tail. Some people have viewed the current large-scale situation of AI in the current moment as an intelligence revolution where we get models that are very intelligent, others have framed it as a cognitive revolution in which we have a revolution in automating certain kinds of cognition and I would claim that another useful framing is the interpolation revolution. While I submit to a relatively optimistic projection of the increase of capabilities of AI systems from general methods, self-learning, reinforcement learning, synthetic data, simulations, etc., I think it is important to note how much more certain and confident we can be in viewing the current AI situation as one in which the core revelation has been that we can interpolate if we have the data. We have algorithms, infrastructure, and understanding that is sufficient to allow us to efficiently interpolate data distributions, data distributions, which means that the interpolation revolution is one in which automization is driven by isolating economically valuable data distributions as collecting the data necessary to learn this distribution, interpolate it, and derive value from this. I do not view it as any novel point, I just think it is worth emphasizing this view because it puts a specific perspective on what it is that needs to be done. If we are indeed interested in automating and in general deriving economic value from our increased understanding and ability to leverage AI in society, in practice it means that it is not just single companies like Gale AI and other data annotation companies in which there is a collection of data that is being instructed and sold to specific model developers like the Big AI Labs to then be used into a general model. Instead, we might imagine that we come up with tools that we come up with tools and infrastructure and organizational processes and organizational understanding that allows for what I just called an isolation of specific tasks and specific distributions such as the initially mentioned understanding of the spoken language of specialist medical professionals and finding ways in which people are working and being okay, not just okay, but encouraged and motivated and incentivized to be able to do the work that they are supposed to do. In a sustainable and fair way to accumulate the data that is necessary to interpolate and derive economic value from this in a way that is fair. By fair I mean that there should be a sustainable way in which this labor which is involved in accumulating this data is going to bring a return and bring value to the people who are involved in these areas and to society as a whole. This I do not claim I have an easy answer to. As I mentioned, I think it will involve the creation of different tools, of different technological and digital infrastructure, different organizational perspectives and even sociological understanding of what is at stake and how to adjust the incentives in the right way. I also think that there is value in thinking at a global scale on this. It has been well known and understood that data annotation companies like Scale.ai have been employing specific workers in lower income countries for creation of the post-training data needed to create, for example, chatbots like ChatGPT. The simple explanation of the debate is that on one side it is possible to pay such people fair wage relative to the job market in those countries and also with good job conditions and therefore bringing economic value and benefit to the people that take these jobs and the people that are part of the society in which they live. On the other hand, it can also be argued that there is something to the setup that is distasteful even if it can be justified by rational arguments such as the idea that by doing this labor you are not including these people in the creation of a technology that is completely wholesome. Because if you truly view AI not just as one other product in the Silicon Valley startup tech environment wherein it might be argued that highly capitalist approaches are useful for allocation of capital and talent and motivation, etc. But instead, as is commonly done by some organizations, you are viewing the creation of AGI as an important phenomenon that has to be treated with more care and consideration than typical for other ventures in which more capitalist setups are beneficial. Then you will often say that the creation of AGI should benefit all of humanity. But what does it mean to benefit all of humanity? I do not know if it is beneficial to present this metaphor, but I will make an attempt. Consider the idea of redistribution as a means of creating equality, which is associated with social democracy, versus ideas from other strands of socialism, wherein equality is also obtained through ownership of capital. In a social democracy, you might be accepting of an inequality in the ownership of capital as long as you have the means of taxing and redistributing the profits in a way that is sufficient for the maintenance of economic equality, while other socialist ideas will instead for various reasons prefer that there should be an equality of ownership of the capital of the means of production, so that the actual power, at least from the perspective of these ideas, in which the capital is the core of the power, is distributed. And through this, there will also be a direct path to equality at the economic level, income level. In the same way, I think that the most common way to view the idea that AI should benefit all of humanity is very heavily influenced by an idea of redistribution. I’m not claiming that such an approach or idea is less wrong, less right, that it is inherently problematic, that it works less well, etc. But I think it is important to discuss and make it very explicit, make it a part of the debate, and think clearly about this topic, so that we discuss whether this is the approach we think is the most beneficial. So I will just explain briefly what I mean to make it more clear. Consider a company called DeepBrain, who operates as a company with a public benefit corporation set up, a complicated mix of non-profit and profit structures, or a completely IPO-based company with shareholders. In this case, these are the kinds of companies that we now have. You have people like Demis Hassabis from DeepMind, saying that we are developing AI, and then we’re using it to solve a lot of other problems, such as medical problems. And thereby, the capitalist structure that is creating AGI is delivering value that benefits most of humanity. Or you have people that believe that there will be so much profit from companies such as OpenAI, that you will have so much profit that you can provide some kind of income for every human being. To the degree that these ways of addressing a concern about distribution of the fruits of AGI are well-intended, I think they are very valid. I think, on the other hand, it is also worth pointing out other perspectives. Let’s return to the data annotators and the long tail. The reason why you could view it as distasteful that people in low-income countries are annotating this data and selling it, is not necessarily that it is somehow unfair that they are exploited as a common Marxist analysis might do it. Rather, we could think of it as a limitation towards a common ownership of AGI among the collective humanity that might be possible if human beings individually can contribute with the data that they can produce, which will cover the long tail of accents, of knowledge, of medical terms, of humor, of their physical environments, and many other things. Because the world is vast, and if indeed AGI is coming, there will be many people interacting with these systems in many different contexts. And just as we can view evolution happening in different niches, resulting in different organisms that are quite unique to a local area, imagine, for example, the genetic material of a microbiota in a certain area of a certain city of a certain country. Just in the same way, there is a niche in the terms of the humor and the culture and the ways of understanding, the ways of communicating, the ways of appreciating, the ways of working, and so on, that will be everywhere forming a long tail of knowledge that is actually relevant to engage with human beings in a fully integrated and trustworthy way. If we want AI systems that are not imposing a certain way of relating to them onto a society, then we want that we cover the distribution. Let me give an example. Consider the problem of speech recognition with accents. At the current moment, there are certain amounts of data that allow models to be better in certain languages, which means that certain people who have a certain accent will be better able to get value from speech recognition systems. If you are not such a person, you might even benefit from adapting your accent and your way of speaking into an accent that sounds like an accent that is well understood, and thereby by enabling the transcription service to transcribe what you want. In this way, a system will put a pressure on the ways of behaving. This is not necessarily bad, but it is an interesting phenomenon in which certain limitations of the data distribution that is used for training models will influence the local system. For example, a social system where you have certain accents, and you will then supposedly over time influence and perhaps limit the culture in that niche. There are certain people who would say that preservation of this culture is not necessarily an inherent good, and therefore it should not be a primary concern. However, I still think it is worth having this discussion of whether or not such cultures are often adapted to certain needs, provide a certain value for the communities and meaning and maybe even robustness, and most importantly, a sense of trustworthiness. Just as you would not feel as trusted if a random person came into your job and you felt like you had to adapt a lot to their way of doing things, but instead wanted to be able to have them adapt to your setting, you might also not be incentivized to collaborate as well with AI systems that are not in the same way adaptable and adapted. I think that there are important reasons to strongly investigate this idea that the collaboration between AI systems and human beings is an important part of making the revolution in AI go well, and that a feeling of ownership, a feeling of being in control, and a feeling of being heard and represented is an important part of this. And if we can somehow find ways in which human beings across the globe can contribute to covering their unique tales of the data distribution, can be represented in the models that are being trained, the way this data is being integrated with systems, the way the data is being interpolated, and have some ownership of not just the data but maybe also the value produced from the models themselves, then I think people will feel a connection to the AI systems and to the degree that we should view it as a collaboration, I think this collaboration between AI and humans will then have a much higher chance of going well. So, therefore, I think there’s good reasons for technical people, computer scientists, data engineers, AI developers, researchers, but also social scientists like psychologists, economists, and people doing business and understanding the business organizations, to think about and discuss together how it might be possible to set up good systems that enable some of the things I just mentioned, and flesh out what that would mean in practice, what kind of tools, what kind of apps, what kind of websites, what kind of databases, what kind of training infrastructure, etc. could be relevant.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

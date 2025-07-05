@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-03">
+<meta name="dcterms.date" content="2025-06-22">
 
-<title>curious adventures 1 – kasper munk rasmussen</title>
+<title>Role of Open Source in AI-Human Collaboration – kasper munk rasmussen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -162,7 +133,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">curious adventures 1</h1>
+      <h1 class="title">Role of Open Source in AI-Human Collaboration</h1>
                       </div>
   </div>
     
@@ -173,7 +144,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 3, 2025</p>
+        <p class="date">June 22, 2025</p>
       </div>
     </div>
     
@@ -192,105 +163,18 @@ window.Quarto = {
 
 
 
-<section id="brain-things" class="level1">
-<h1>brain things</h1>
-<p>what is the first thing i want to know? there is on the order of 100b neurons, people throw around the number 86 billion. okay, but there are not only neurons. how many non-neurons are there? okay, interesting, 4o says also O(100b) glial cells.</p>
-<p>what are glial cells? okay it looks like at least in the brain, i need mainly to know 3 types of glial cells:</p>
-<ul>
-<li>50% oligodendrocytes - a type of glial cell that wraps around the axon forming myelin, speeding up electric signaling.</li>
-<li>30% astro - maintain extracellular matrix, blood flow</li>
-<li>10% microglia - immune cells, pruning synapses, remove debris</li>
-</ul>
-<p>so i guess astrocytes are the most important.</p>
-<ul>
-<li>they clear excess neurotransmitters like glutamate, so there is not too much which would result in overactivation of the brain, so that seems quite important for even computation.</li>
-<li>when a brain region becomes active the astrocytes sense changes in neurotransmitters and signal to blood vessels to dilate, crazy. called <em>neurovascular coupling</em>, important for understanding fMRI.</li>
-<li>release signals that influence synapses, so strength, learning, plasticity</li>
-<li>can become “reactive astrocytes” in infection, alzheimers etc.</li>
-</ul>
-<p>okay that is enough for me for now about astrocytes. and the oligodendrocytes kind of makes sense to me not going deeper with that.</p>
-<p>there is 1e8 neurons and 1e8 glial cells. but like oligodendrocytes are forming myelin always or also different things, and in that case is one oligodendrocyte only responsible for one axon, and how many axons? okay oligodendrocytes myelinate multiple axons. 1 axon per neuron but they can branch. estimated that 50% of the axons in the brain are myelinated but depends on regions. okay the primary difference is gray and white matter: 90% of white, and maybe 20% of gray.</p>
-<p>but i did not learn what white and gray is. okay, it sounds a bit bullshitish, not easy enough to get a clear answer. roughly</p>
-<ul>
-<li>gray matter: high number of somas per volume</li>
-<li>white matter: low number of somas per volume AND high number of myelinated axons per volume</li>
-</ul>
-<p>at least i will run with this. so now i am getting a picture of the brain as having some kind of volume in R^3 and there is some kind of neuron soma count measure that describes how many somas are in a specific region, and then abstracting it as a density even though not continous giving neuron soma density. And then there is an axon count measure and axon count density and myelinated axon count measure. And these are the interesting things, and gray and white matter are simplifications.</p>
-<p>(okay, just got distracted because presented 4o that i wanted to think in terms of measures and it wanted to go off with fiber bundles. so learned that the tangent bundle is the a disjoiint union of the tangent spaces for each point on the manifold, disjoint in the sense that you keep track of which point it came from. so disjoint union is a bit like enumerate in python, you keep an index.)</p>
-<p>okay so where were we. we have neurons with somas and axons and glial cells especially astrocytes and oligodendrocytes. so we are still looking at it from afar. something about energy. how much energy is it using and are neurons using more energy than glial cells?</p>
-<ul>
-<li>the energy usage is on the order of 20 W and roughly 20% of the brain’s energy.</li>
-<li>neurons use 75% and glial cells then less than 20%.</li>
-</ul>
-<p>the reason why they use relatively much has to do with action transmission (ion gradients, glutamate release/reuptake)</p>
-<p>okay so one thing is the density of neurons and the density of glial cells and their relationships. we saw that the notion of gray matter means that neuron soma density is not uniform, is the astrocytes the same way. ok it sounds like i should think of astrocyte density being related to neuron density, because neurons “need” astrocytes, so more neurons need more astrocytes. so astrocyte denisty is not uniform. locally it can be viewed a bit as a regular lattice.</p>
-<p>okay i wonder how one can know these kind of things. spatial transcriptomics of neuronal cell cultures? some methods can do single cells RNA others do aggregate per “spot”? Okay it sounds like you take a mouse brain flash freeze it make a slice for example from the cortex (barbaric unless it already was dying) of 10 <span class="math inline">\(\mu m\)</span> (mu means micro so one 1 <span class="math inline">\(\mu m\)</span> is 1e-6m).</p>
-<ul>
-<li>The soma of a neuron is on the order of 10 micrometers, 1e-5 meters.</li>
-<li>same for astrocytes 10 micrometers, but that is the cell body, it has “processes extending” that are on the order of 100 micrometers which would be its radius.</li>
-</ul>
-<p>hmm, i am starting to think about how i should imagine it. if i have a cube with sidelength 100 micrometers, giving what proportion of the volume is taken up by different things? 4o says</p>
-<ul>
-<li>10% neuron somas</li>
-<li>10* glial somas</li>
-<li>45% glial and neuron processes (dendrites axons etc)</li>
-<li>20% extracellular space with water and ions and neurotransmitters etc</li>
-<li>5% capillaries</li>
-</ul>
-<p>and they form some kind of soft tissue.</p>
-<p>ok that was quite a high degree of “exploitation” in this line, a lot of focus on astrocytes etc. i will continue a bit</p>
-<p>one of the things we learned was 75% of energy going to neurons because of spiking. i can imagine energy requirements changing over time, after all that is what fmri is about, but are there some regions that are just more energy intesive, and is that mostly predicted by neuron soma density?</p>
-<p>first, like how can we measure? FDG is a glucose that is modified to emit positrons and can then image with PET-scan. Cortex, especially frontal and visual cortex, uses a lot of glucose.</p>
-</section>
-<section id="inside-cells" class="level1">
-<h1>inside cells</h1>
-<p>so we have these cels they are maybe 10 micrometers? what’s going on inside there. there is a nucleus, i guess it is like a ball. it is roughly 5 micrometers diameter, it takes up 10% of the volume. does that match? yeah it is okay. and the mitrochondria also 10% only one nucleus and multiple mitochrondira?</p>
-<ul>
-<li>order of 100 to 1000 mitochrondria per cell</li>
-<li>shaped like 0.5x2 micrometers</li>
-</ul>
-<p>great and inside the nucleus, the chromatin fills up quite well even though not taking up all the volume</p>
-<ul>
-<li>order of 10-100 chromosomes, 46 for humans</li>
-<li>3e9 basepairs total, varying from 50 to 250 million base pairs per chromosome, decreasing pretty linearly with rank</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chromosomesizes.png" class="img-fluid figure-img"></p>
-<figcaption>Chromosome lengths</figcaption>
-</figure>
-</div>
-<ul>
-<li>okay and it is like this: 8 histone proteins form as 2x2x2 box and order of 100 base pairs wrap around it</li>
-<li>on one side is a H1 histone where the dna enters and exits</li>
-<li>order of 10-100 base pairs of linker dna to next structure</li>
-<li>the structures are called nucleosomes</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="nucleosome.jpg" class="img-fluid figure-img"></p>
-<figcaption>Nucleosome cartoon</figcaption>
-</figure>
-</div>
-<ul>
-<li><p>the word chromatin somehow refers to all of these nucleosomes and some other proteins etc not super clear</p></li>
-<li><p>word chromosome also being used a bit weird, focused on when the cell is diving etc, but also numbering them. so each chromosome there is “chromatin” for that chromosome somewhere in the cell, seems you can say “the chromatin for chromosome 11”</p></li>
-<li><p>there are 3 RNA-polymerases, it is number 2 that is doing all the the transcription for real proteins.</p></li>
-<li><p>can transcribe sections that are longer than is on a single nucleosome so there is a crazy dance with other protein complexes like FACT etc that unfold the nucleosome etc.</p></li>
-<li><p>multiple different RNA-polymerase-2’s can be transcribing at the same time at the same interval</p></li>
-<li><p>speed is O(1K) basepairs per minute, can vary by factor 3x depending</p></li>
-<li><p>O(50K) RNA-polymerase-2’s inside the nucleus at a single time. O(15K) transcribing at a given time.</p></li>
-<li><p>O(1e6) transcripts in the cell at given time, O(1e10) proteins in the cell at given time, one transcript can be translated to protein multiple times</p></li>
-<li><p>30% of the volume in cytoplasma taken up by macromoleucles like RNA and protein. 50% is protein, 25% RNA. I am confused concluded that proteins were much more abundant? it’s because RNA is much larger, nucleotides are bigger than amino acids. think 4o might be starting to hallucinate now that i am inquiring about this.</p></li>
-<li><p>okay amino acids are O(50) Å^3 (1Å = 0.1 nanometer, 1e-10 meters) and nucleotides O(500) so one order of magnitude difference, but we had 3 ooms difference in abundance of rna and protein.</p></li>
-<li><p>okay seems it is because of rRNA in ribosomes very huge, and makes up 80% of RNA in the cell</p></li>
-<li><p>the ribosome is made up with a core part of it being rRNA that is why it is huge.</p></li>
-<li><p>translation rate is O(10) AA/s, 30-60 seconds per protein typical</p></li>
-<li><p>O(1e6) ribosomes in the cell, ~20 nm in diameter, ~7K nucleotides for the rRNA.</p></li>
-</ul>
+<p>What role does open source play in AI safety? Is open source special?</p>
+<p>There is one position which holds that strong autonomous AI systems pose risk, and that open source therefore does not really have much to do with AI safety, that on the contrary, open source and open weights etc. might be a net negative.</p>
+<p>It might be very speculative, but I want to explore the idea that the risks of AI are more complicated than the unaligned superintelligent systems gone rogue. No doubt this idea that I will try to explore is only a small part of a bigger picture.</p>
+<p>Let me paint a picture. Over the coming years the Pareto frontiers of models are going to steadily expand, smaller models are becoming more capable, bigger models are becoming more capable, easier to integrate in existing systems etc. As that happens, their ability to do what humans want will be limited by the understanding that they have of the context of the organisations, the systems, the preferences of humans and many more things. People have talked about a capabilities overhang, where if systems get very good, as available compute scales, society cannot quickly enough adapt to the improvements coming from scaling. But the idea of overhang could be extended or generalized. That is, it is imprecise to say capabilities overhang without saying that it is with respect to compute scaling. There can be a capability overhang with respect to preferences, or I think more insightfully, there can be an overhang with respect to collaboration.</p>
+<p>Again, I believe it is only a smaller part of a broader picture on safety, but part of the AI safety problem is the ability for human and AI systems to collaborate. And I think open source plays an important role here. In my opinion, it is obvious that the incentives pressures are already being activated for AI companies to optimize for a certain kind of human-AI interaction, I am here especially thinking of the OpenAI’s ChatGPT Advanced Voice mode. Just in the past weeks they made an update to its “personality”, that most likely optimizes some reward signal that only OpenAI know the basis of. The risks of applying the full force of optimization toward the human reward signals is obviously risky, as social media technologies have shown. Optimizing for something that is truly collaborative, might be extremely difficult and I think open source will play a big role.</p>
+<p>Meanwhile, a French open-source lab <a href="https://kyutai.org/">Kyutai</a> has this month released <a href="https://unmute.sh/">Unmute.sh</a> voice assistant based on low-latency streaming text-to-speech and speech-to-text models that allow for plugging in any LLM as the “brain” of the voice assistant. While its voice might be less seducing than OpenAI’s latest voices, their audio models are and will be open source, there is no changing of the personality, no unknown optimization, and so on. It feels refreshing and safe to talk to it, even when their demo only uses a 12B parameter Gemma model.</p>
+<p>How does this aid human-AI collaboration. Trust is fundamental to humans, emotions are fundamnetal to humans. It might not be that there is a direct way to connect human-AI collaboration to improvements of the most radical aspects of AI safety, but one could imagine that there is a path, where as systems become more and more integrated, the main factors influencing the outcome as systems surpass human understanding, will be how much of the core of our preferences we can load on the rocket as it fires off. This is not done by applying simple minded optimization, but there might be a chance it can at least be aided by focusing on building trustworthy collaborations between humans and AIs.</p>
+<p>What does that mean, trustworthy collaborations between humans and AIs. It at least means that trust goes both ways. For now, and at least for the foreseeable future, humans will be the most capable in the trust department, since it is central to human psychology and sociality. But it is an empirical question, social scientists should actually focus on it, take it seriously, I think the social sciences have tools and methods for this, and it seems clear that it can have some impact.</p>
+<p>I can start by introspecting. I trust a systems like Kyutai’s Unmute.sh more because the voice I selected for it was relatively bland, and because while it was flattering sometimes, it did not feel like it was manipulating me emotionally. I think some of us have met people where you feel like they are trying to get something out of you, they somehow are too sweet or something, this might set off some alarms in our internal trust systems. It also felt refreshing to talk to a system that I new was just 12B parameters. Thought it is impressive what 12B parameter models can do these days, there is something assuring about interacting with a smaller model that is smart enough to know some things that you can learn from but not much more. Maybe a feeling that you can “fathom” the depths of the model. Maybe we can think of it like this; when we interact with some other person, if we have a feeling that they have a lot of knowledge that is “relevant” to our situation, but they are not telling it, we feel something is off, we feel unsafe, and we cannot trust. Transparency is very “correlated” with trustworthiness even if they are distinct concepts and the relation between the two concepts is more complex. So, transparency as a tool for increasing trustworthy collaboration might happen at multiple levels: For a technical user, the feeling arising from the knowledge that the text-to-speech model is trained on open data, that underlying LLM is available and there might be people out there advancing open mechanistic interpretability of the model (<a href="https://www.neuronpedia.org/gemma-scope">Gemmascope</a>). It would be interesting if this notion that I mentioned of feeling of fathomability of a model is a thing that can be investigated experimentally.</p>
+<p>What kind of interactions do people want with AI systems and how dependent are they on capability? Most businesses want workers that are very capable, but they might not necessarily want them to be unlimited in their knowledge and understanding of situations. It’s not obvious what the answer is - misunderstanidng of situations, lack of context etc., can cause problems. But are there cases where it is a balance between trust and capability? I am not prescribing anything about how I want human-AI collaboration to be, but if we are facing a scenario where more and more of the population feel that spending time with voice assistants is worthwhile, then what characteristics do they have: Perhaps, we as humans are not always trying to only spend time with the most intelligent and emotionally advanced people - in humans there might be (statistical) trade-offs, where some people might be more funny or chill if they are not as intelligent and goal oriented and emotionally aware as they could be. I might be wrong about that, just an idea.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

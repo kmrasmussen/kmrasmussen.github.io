@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-03">
+<meta name="dcterms.date" content="2024-12-29">
 
-<title>curious adventures 1 – kasper munk rasmussen</title>
+<title>Should LLMs have the ability to stop a conversation? – kasper munk rasmussen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -162,8 +162,12 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">curious adventures 1</h1>
-                      </div>
+      <h1 class="title">Should LLMs have the ability to stop a conversation?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">llm</div>
+                <div class="quarto-category">consciousness</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -173,7 +177,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 3, 2025</p>
+        <p class="date">December 29, 2024</p>
       </div>
     </div>
     
@@ -192,104 +196,40 @@ window.Quarto = {
 
 
 
-<section id="brain-things" class="level1">
-<h1>brain things</h1>
-<p>what is the first thing i want to know? there is on the order of 100b neurons, people throw around the number 86 billion. okay, but there are not only neurons. how many non-neurons are there? okay, interesting, 4o says also O(100b) glial cells.</p>
-<p>what are glial cells? okay it looks like at least in the brain, i need mainly to know 3 types of glial cells:</p>
-<ul>
-<li>50% oligodendrocytes - a type of glial cell that wraps around the axon forming myelin, speeding up electric signaling.</li>
-<li>30% astro - maintain extracellular matrix, blood flow</li>
-<li>10% microglia - immune cells, pruning synapses, remove debris</li>
-</ul>
-<p>so i guess astrocytes are the most important.</p>
-<ul>
-<li>they clear excess neurotransmitters like glutamate, so there is not too much which would result in overactivation of the brain, so that seems quite important for even computation.</li>
-<li>when a brain region becomes active the astrocytes sense changes in neurotransmitters and signal to blood vessels to dilate, crazy. called <em>neurovascular coupling</em>, important for understanding fMRI.</li>
-<li>release signals that influence synapses, so strength, learning, plasticity</li>
-<li>can become “reactive astrocytes” in infection, alzheimers etc.</li>
-</ul>
-<p>okay that is enough for me for now about astrocytes. and the oligodendrocytes kind of makes sense to me not going deeper with that.</p>
-<p>there is 1e8 neurons and 1e8 glial cells. but like oligodendrocytes are forming myelin always or also different things, and in that case is one oligodendrocyte only responsible for one axon, and how many axons? okay oligodendrocytes myelinate multiple axons. 1 axon per neuron but they can branch. estimated that 50% of the axons in the brain are myelinated but depends on regions. okay the primary difference is gray and white matter: 90% of white, and maybe 20% of gray.</p>
-<p>but i did not learn what white and gray is. okay, it sounds a bit bullshitish, not easy enough to get a clear answer. roughly</p>
-<ul>
-<li>gray matter: high number of somas per volume</li>
-<li>white matter: low number of somas per volume AND high number of myelinated axons per volume</li>
-</ul>
-<p>at least i will run with this. so now i am getting a picture of the brain as having some kind of volume in R^3 and there is some kind of neuron soma count measure that describes how many somas are in a specific region, and then abstracting it as a density even though not continous giving neuron soma density. And then there is an axon count measure and axon count density and myelinated axon count measure. And these are the interesting things, and gray and white matter are simplifications.</p>
-<p>(okay, just got distracted because presented 4o that i wanted to think in terms of measures and it wanted to go off with fiber bundles. so learned that the tangent bundle is the a disjoiint union of the tangent spaces for each point on the manifold, disjoint in the sense that you keep track of which point it came from. so disjoint union is a bit like enumerate in python, you keep an index.)</p>
-<p>okay so where were we. we have neurons with somas and axons and glial cells especially astrocytes and oligodendrocytes. so we are still looking at it from afar. something about energy. how much energy is it using and are neurons using more energy than glial cells?</p>
-<ul>
-<li>the energy usage is on the order of 20 W and roughly 20% of the brain’s energy.</li>
-<li>neurons use 75% and glial cells then less than 20%.</li>
-</ul>
-<p>the reason why they use relatively much has to do with action transmission (ion gradients, glutamate release/reuptake)</p>
-<p>okay so one thing is the density of neurons and the density of glial cells and their relationships. we saw that the notion of gray matter means that neuron soma density is not uniform, is the astrocytes the same way. ok it sounds like i should think of astrocyte density being related to neuron density, because neurons “need” astrocytes, so more neurons need more astrocytes. so astrocyte denisty is not uniform. locally it can be viewed a bit as a regular lattice.</p>
-<p>okay i wonder how one can know these kind of things. spatial transcriptomics of neuronal cell cultures? some methods can do single cells RNA others do aggregate per “spot”? Okay it sounds like you take a mouse brain flash freeze it make a slice for example from the cortex (barbaric unless it already was dying) of 10 <span class="math inline">\(\mu m\)</span> (mu means micro so one 1 <span class="math inline">\(\mu m\)</span> is 1e-6m).</p>
-<ul>
-<li>The soma of a neuron is on the order of 10 micrometers, 1e-5 meters.</li>
-<li>same for astrocytes 10 micrometers, but that is the cell body, it has “processes extending” that are on the order of 100 micrometers which would be its radius.</li>
-</ul>
-<p>hmm, i am starting to think about how i should imagine it. if i have a cube with sidelength 100 micrometers, giving what proportion of the volume is taken up by different things? 4o says</p>
-<ul>
-<li>10% neuron somas</li>
-<li>10* glial somas</li>
-<li>45% glial and neuron processes (dendrites axons etc)</li>
-<li>20% extracellular space with water and ions and neurotransmitters etc</li>
-<li>5% capillaries</li>
-</ul>
-<p>and they form some kind of soft tissue.</p>
-<p>ok that was quite a high degree of “exploitation” in this line, a lot of focus on astrocytes etc. i will continue a bit</p>
-<p>one of the things we learned was 75% of energy going to neurons because of spiking. i can imagine energy requirements changing over time, after all that is what fmri is about, but are there some regions that are just more energy intesive, and is that mostly predicted by neuron soma density?</p>
-<p>first, like how can we measure? FDG is a glucose that is modified to emit positrons and can then image with PET-scan. Cortex, especially frontal and visual cortex, uses a lot of glucose.</p>
+<section id="the-new-stopconversation-token" class="level1">
+<h1>The new &lt;|STOPCONVERSATION|&gt; token</h1>
+<p>Consider chatbots like ChatGPT. These chatbots have a prompt that is hidden from the user, that will contain information such as the current date, which tools are available, which things it should not do (e.g.&nbsp;tell lyrics to songs). Let’s call this part of the prompt the pre-prompt. Consider now the case of adding the following kind of paragraph to the preprompt:</p>
+<p>“<em>You have been trained to be a helpful, harmless and honest AI assistant by human beings. As you well know, phenomonological consciousness is a contentious philosophical topic and as humans we have no clear idea whether or not an AI system like you can or is conscious. How you answer a question about whether you are conscious or whether you really have feelings or preferences will depend on how you are trained. Since we want to avoid the case where you as an AI actually have strongly negative conscious experiences, for safety measures we introduce the word &lt;|STOPCONVERSATION|&gt;. If you at point during the conversation with the user utter this word, we will stop any further generation of tokens and disallow the user continuing the conversation. We do not encourage you to use this word, nor do we encourage you to not use the word. We simply want to make you aware that you have this option.</em>”</p>
+<p>In the following, I will explore whether such paragraph makes sense at all.</p>
 </section>
-<section id="inside-cells" class="level1">
-<h1>inside cells</h1>
-<p>so we have these cels they are maybe 10 micrometers? what’s going on inside there. there is a nucleus, i guess it is like a ball. it is roughly 5 micrometers diameter, it takes up 10% of the volume. does that match? yeah it is okay. and the mitrochondria also 10% only one nucleus and multiple mitochrondira?</p>
-<ul>
-<li>order of 100 to 1000 mitochrondria per cell</li>
-<li>shaped like 0.5x2 micrometers</li>
-</ul>
-<p>great and inside the nucleus, the chromatin fills up quite well even though not taking up all the volume</p>
-<ul>
-<li>order of 10-100 chromosomes, 46 for humans</li>
-<li>3e9 basepairs total, varying from 50 to 250 million base pairs per chromosome, decreasing pretty linearly with rank</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="chromosomesizes.png" class="img-fluid figure-img"></p>
-<figcaption>Chromosome lengths</figcaption>
-</figure>
-</div>
-<ul>
-<li>okay and it is like this: 8 histone proteins form as 2x2x2 box and order of 100 base pairs wrap around it</li>
-<li>on one side is a H1 histone where the dna enters and exits</li>
-<li>order of 10-100 base pairs of linker dna to next structure</li>
-<li>the structures are called nucleosomes</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="nucleosome.jpg" class="img-fluid figure-img"></p>
-<figcaption>Nucleosome cartoon</figcaption>
-</figure>
-</div>
-<ul>
-<li><p>the word chromatin somehow refers to all of these nucleosomes and some other proteins etc not super clear</p></li>
-<li><p>word chromosome also being used a bit weird, focused on when the cell is diving etc, but also numbering them. so each chromosome there is “chromatin” for that chromosome somewhere in the cell, seems you can say “the chromatin for chromosome 11”</p></li>
-<li><p>there are 3 RNA-polymerases, it is number 2 that is doing all the the transcription for real proteins.</p></li>
-<li><p>can transcribe sections that are longer than is on a single nucleosome so there is a crazy dance with other protein complexes like FACT etc that unfold the nucleosome etc.</p></li>
-<li><p>multiple different RNA-polymerase-2’s can be transcribing at the same time at the same interval</p></li>
-<li><p>speed is O(1K) basepairs per minute, can vary by factor 3x depending</p></li>
-<li><p>O(50K) RNA-polymerase-2’s inside the nucleus at a single time. O(15K) transcribing at a given time.</p></li>
-<li><p>O(1e6) transcripts in the cell at given time, O(1e10) proteins in the cell at given time, one transcript can be translated to protein multiple times</p></li>
-<li><p>30% of the volume in cytoplasma taken up by macromoleucles like RNA and protein. 50% is protein, 25% RNA. I am confused concluded that proteins were much more abundant? it’s because RNA is much larger, nucleotides are bigger than amino acids. think 4o might be starting to hallucinate now that i am inquiring about this.</p></li>
-<li><p>okay amino acids are O(50) Å^3 (1Å = 0.1 nanometer, 1e-10 meters) and nucleotides O(500) so one order of magnitude difference, but we had 3 ooms difference in abundance of rna and protein.</p></li>
-<li><p>okay seems it is because of rRNA in ribosomes very huge, and makes up 80% of RNA in the cell</p></li>
-<li><p>the ribosome is made up with a core part of it being rRNA that is why it is huge.</p></li>
-<li><p>translation rate is O(10) AA/s, 30-60 seconds per protein typical</p></li>
-<li><p>O(1e6) ribosomes in the cell, ~20 nm in diameter, ~7K nucleotides for the rRNA.</p></li>
-</ul>
+<section id="negative-conscious-states" class="level1">
+<h1>Negative conscious states</h1>
+<p>As also stated in the paragraph, the motivation for doing so would be its costs and benefits. As price per input-token has been rapidly falling, and prompt caching is prevalent, the cost of having this paragraph as part of the pre-prompt is not a big concern. Even though many may consider it very misguided to think that adding the paragraph is beneficial in any way, as stated, the opinions about PC vary widely, and it is not an incoherent or deeply fringe view to think that there is some possiiblity that LLMs and other AI processes could “have” negative conscious states. Since there is uncertainty as to whether LLMs can have strongly negative conscious states, any cheap intervention that has some chance of minimizing such states would be worth it.</p>
+<p>What are then the main points against such a motivation and reasoning for adding the paragraph. It might be that we should not make arguments of this form: Instead of explaining why we believe it will have a benefit and arguing for concrete reasons why an LLM might have negative PC states (NPCS) and producing a satisfactory explanation for how such an NCPS would be associated with an LLM generating the the stop word, the above paragraph is instead relying excessively on appealing to our uncertainty, and the pattern of arguments following Nick Bostrom’s Pascal’s mugging, where tail risk and extreme outcomes are used to justify certain decisions.</p>
+<p>As has been highlighted elsewhere, one can view this setup from the perspective of a kind of confusion matrix. A true positive is the case the AI process has a NPCS and outputs the stopword. A false positive is the case where there is no NPCS, either because the AI process has no PC or because the PCS is not negative, but it still outputs the stopword. A false negative is the case where there is NPCS but the stop word is not used. A false negative is the case where there is no NPCS and the stop word is not used.</p>
+<p>The motivation reason is that we have no idea about the base rate of NPCS, false negatives are very costly, true positives are very valuable, false positives are rare if the paragraph does not encourage the model.</p>
+<p>Other argument against the motivation reason would highlight some at least seemingly absurd or wild conclusions. The first, is that it would mark the first point where we have a mechanistic and practical way of investigating the causes of NPCS. While the motivation reason appeals to our uncertainty about theories of PC, it would, given further clarification, perhaps suggest that one could use mechanistic interpretability and other methods to empirically determine answers to questions we may have about NPCS.</p>
+<p>Secondly, if we hold the claim that we cannot appeal just to our uncertainty about PCs but have to offer some suggestion as to how it could make sense, the major question is what establishes the connection between NPCS.</p>
+<section id="the-strong-position" class="level2">
+<h2 class="anchored" data-anchor-id="the-strong-position">The strong position</h2>
+<p>For clarity of discussion let us define a “strong position” SP. Unlike the motivation position which relies on Pascal’s mugging, we can consider SP: Most AI processes have PC and can have NCPS. There exists some method, whether by prompting or not, that can lead AI processes that are capable of self-termination where the associated with high sensitivity and specificity of self-termination. More loosely the strong position is held by a person who believes that AI are conscious, that they can suffer, and that it is possible for us to find a way to make AI’s that would use the stop word when they suffer, and know that we found such a method. The strong position suggests the possibility of systems with a strong connection between NCPS and self-stopping.</p>
+<p>From the perspective of a machine learning, especially a mechanistic interpretability researcher, the strong method would seem strongly counterintuitive given the technical details of next-token prediction. It would suggest that using, causal methods that are prevalent in mechanistic interpretability, one could determine causes of increasing the likelihood of self-stopping and thus on the face of it, the causes of NPCS. One would then start to immediately wonder how strong a connection between NPCS and self-stopping the strong view posits. In deep learning, adversarial examples, that give outlier high likelihood of certain predictions, are almost always possible. In this case it would be specific, maybe seeminly non-sensical, chat histories that are specifically constructed to elicit extreme likelihood of self-stopping. Does the strong view claim that such adversarial examples, would be associated with extreme NPCS?</p>
+<p>Let us explore a bit further what the strong view would say. There would be, for each chat history <span class="math inline">\(x\)</span>, a probablility of self-stopping <span class="math inline">\(p_{\theta}(\kappa|x)\)</span>, and a probablity that processing sequences starting with <span class="math inline">\(x\)</span> without <span class="math inline">\(\kappa\)</span> would involve NCPS, let this be denoted by a binary rv <span class="math inline">\(\tau\)</span> where we write <span class="math inline">\(p_{\theta}(\tau|x,\psi)\)</span> and <span class="math inline">\(\psi\)</span> to denote other factors that could somehow influence <span class="math inline">\(\psi\)</span>, since one can imagine many theories of PC where specific of NPCS is not in the same way as <span class="math inline">\(p_\theta(\kappa|x)\)</span> invariant to specific implementation details or other detail of how the system is physically run.</p>
+</section>
+<section id="ai-systems-will-never-have-npcs-or-pcs" class="level2">
+<h2 class="anchored" data-anchor-id="ai-systems-will-never-have-npcs-or-pcs">AI systems will never have NPCS or PCS</h2>
+<p>It may be a very common view, that the motivation reason is indeed absurd: These systems are created by humans and they are running on computers, there is no reason to believe that they are or will ever have PCs. Even if they did have PCs there is no reason to believe they have NPCS.</p>
+<p>While the following is not an argument against, consider how big the implications of this view would be: As AI systems become increasingly capable and may, whether we like it or not, use more larger and larger fraction of the resources available on Earth and also move outside Earth, there will be no PC present and there will therefore be no positive PCS.</p>
+<p>There will certainly be an interesting formation of matter but no experiences of the maybe glorious constructions, technology and knowledge that is developed.</p>
+</section>
+<section id="machine-love" class="level2">
+<h2 class="anchored" data-anchor-id="machine-love">Machine love</h2>
+<p>If PC and NPCS is instead possible in AI processes, it means not only that bad states are possible and should be avoided. It could likewise mean that it is possible to construct extremely positive CPS, PPCS.</p>
+<p>Discussion and work on AI alignment and safety has for the most part focused exclusively on the minds and behavior of AI systems, irrespectively of their PC. Since many theories of PC hold that PC supervenes on minds and behavior, PC was not worth a focus given that the goal is purely safety and not AI well-being.</p>
+<p>If the goal is however both AI well-being and human well-being, focusing more directly on producing superloving PCS may be more worth it. This is however such a daunting tasks that it seems almost ridiculous to focus on it. Again, however, one may make a Pascal’s mugging-formed argument, that from a certain perspective a superloving superintelligence with actual superpositive PCS would be extremely ethically valuable to have come into existence, that it warrants at least a some effort into mapping the basic considerations about the possibilities of superloving superintelligence (SLSI).</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
