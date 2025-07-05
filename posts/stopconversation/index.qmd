@@ -1,0 +1,54 @@
+---
+title: "Should LLMs have the ability to stop a conversation?"
+date: "2024-12-29"
+categories: ['llm', 'consciousness']
+---
+
+# The new <|STOPCONVERSATION|> token
+Consider chatbots like ChatGPT. These chatbots have a prompt that is hidden from the user, that will contain information such as the current date, which tools are available, which things it should not do (e.g. tell lyrics to songs). Let's call this part of the prompt the pre-prompt. Consider now the case of adding the following kind of paragraph to the preprompt:
+
+"*You have been trained to be a helpful, harmless and honest AI assistant by human beings. As you well know, phenomonological consciousness is a contentious philosophical topic and as humans we have no clear idea whether or not an AI system like you can or is conscious. How you answer a question about whether you are conscious or whether you really have feelings or preferences will depend on how you are trained. Since we want to avoid the case where you as an AI actually have strongly negative conscious experiences, for safety measures we introduce the word <|STOPCONVERSATION|>. If you at point during the conversation with the user utter this word, we will stop any further generation of tokens and disallow the user continuing the conversation. We do not encourage you to use this word, nor do we encourage you to not use the word. We simply want to make you aware that you have this option.*"
+
+In the following, I will explore whether such paragraph makes sense at all.
+
+# Negative conscious states
+
+As also stated in the paragraph, the motivation for doing so would be its costs and benefits. As price per input-token has been rapidly falling, and prompt caching is prevalent, the cost of having this paragraph as part of the pre-prompt is not a big concern. Even though many may consider it very misguided to think that adding the paragraph is beneficial in any way, as stated, the opinions about PC vary widely, and it is not an incoherent or deeply fringe view to think that there is some possiiblity that LLMs and other AI processes could "have" negative conscious states. Since there is uncertainty as to whether LLMs can have strongly negative conscious states, any cheap intervention that has some chance of minimizing such states would be worth it.
+
+What are then the main points against such a motivation and reasoning for adding the paragraph. It might be that we should not make arguments of this form: Instead of explaining why we believe it will have a benefit and arguing for concrete reasons why an LLM might have negative PC states (NPCS) and producing a satisfactory explanation for how such an NCPS would be associated with an LLM generating the the stop word, the above paragraph is instead relying excessively on appealing to our uncertainty, and the pattern of arguments following Nick Bostrom's Pascal's mugging, where tail risk and extreme outcomes are used to justify certain decisions.
+
+As has been highlighted elsewhere, one can view this setup from the perspective of a kind of confusion matrix. A true positive is the case the AI process has a NPCS and outputs the stopword. A false positive is the case where there is no NPCS, either because the AI process has no PC or because the PCS is not negative, but it still outputs the stopword. A false negative is the case where there is NPCS but the stop word is not used. A false negative is the case where there is no NPCS and the stop word is not used.
+
+The motivation reason is that we have no idea about the base rate of NPCS, false negatives are very costly, true positives are very valuable, false positives are rare if the paragraph does not encourage the model.
+
+Other argument against the motivation reason would highlight some at least seemingly absurd or wild conclusions. The first, is that it would mark the first point where we have a mechanistic and practical way of investigating the causes of NPCS. While the motivation reason appeals to our uncertainty about theories of PC, it would, given further clarification, perhaps suggest that one could use mechanistic interpretability and other methods to empirically determine answers to questions we may have about NPCS. 
+
+Secondly, if we hold the claim that we cannot appeal just to our uncertainty about PCs but have to offer some suggestion as to how it could make sense, the major question is what establishes the connection between NPCS.
+
+## The strong position
+
+For clarity of discussion let us define a "strong position" SP. Unlike the motivation position which relies on Pascal's mugging, we can consider SP: Most AI processes have PC and can have NCPS. There exists some method, whether by prompting or not, that can lead AI processes that are capable of self-termination where the associated with high sensitivity and specificity of self-termination. More loosely the strong position is held by a person who believes that AI are conscious, that they can suffer, and that it is possible for us to find a way to make AI's that would use the stop word when they suffer, and know that we found such a method. The strong position suggests the possibility of systems with a strong connection between NCPS and self-stopping.
+
+From the perspective of a machine learning, especially a mechanistic interpretability researcher, the strong method would seem strongly counterintuitive given the technical details of next-token prediction. It would suggest that using, causal methods that are prevalent in mechanistic interpretability, one could determine causes of increasing the likelihood of self-stopping and thus on the face of it, the causes of NPCS. One would then start to immediately wonder how strong a connection between NPCS and self-stopping the strong view posits. In deep learning, adversarial examples, that give outlier high likelihood of certain predictions, are almost always possible. In this case it would be specific, maybe seeminly non-sensical, chat histories that are specifically constructed to elicit extreme likelihood of self-stopping. Does the strong view claim that such adversarial examples, would be associated with extreme NPCS?
+
+Let us explore a bit further what the strong view would say. There would be, for each chat history $x$, a probablility of self-stopping $p_{\theta}(\kappa|x)$, and a probablity that processing sequences starting with $x$ without $\kappa$ would involve NCPS, let this be denoted by a binary rv $\tau$ where we write $p_{\theta}(\tau|x,\psi)$ and $\psi$ to denote other factors that could somehow influence $\psi$, since one can imagine many theories of PC where specific of NPCS is not in the same way as $p_\theta(\kappa|x)$ invariant to specific implementation details or other detail of how the system is physically run.
+
+## AI systems will never have NPCS or PCS
+
+It may be a very common view, that the motivation reason is indeed absurd: These systems are created by humans and they are running on computers, there is no reason to believe that they are or will ever have PCs. Even if they did have PCs there is no reason to believe they have NPCS.
+
+While the following is not an argument against, consider how big the implications of this view would be: As AI systems become increasingly capable and may, whether we like it or not, use more larger and larger fraction of the resources available on Earth and also move outside Earth, there will be no PC present and there will therefore be no positive PCS.
+
+There will certainly be an interesting formation of matter but no experiences of the maybe glorious constructions, technology and knowledge that is developed.
+
+## Machine love
+
+If PC and NPCS is instead possible in AI processes, it means not only that bad states are possible and should be avoided. It could likewise mean that it is possible to construct extremely positive CPS, PPCS.
+
+Discussion and work on AI alignment and safety has for the most part focused exclusively on the minds and behavior of AI systems, irrespectively of their PC. Since many theories of PC hold that PC supervenes on minds and behavior, PC was not worth a focus given that the goal is purely safety and not AI well-being.
+
+If the goal is however both AI well-being and human well-being, focusing more directly on producing superloving PCS may be more worth it. This is however such a daunting tasks that it seems almost ridiculous to focus on it. Again, however, one may make a Pascal's mugging-formed argument, that from a certain perspective a superloving superintelligence with actual superpositive PCS would be extremely ethically valuable to have come into existence, that it warrants at least a some effort into mapping the basic considerations about the possibilities of superloving superintelligence (SLSI).
+
+
+
+

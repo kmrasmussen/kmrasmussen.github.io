@@ -40,5 +40,20 @@
   },
   "indexold.qmd": {
     "indexold.html": "7077de73"
+  },
+  "posts/stopconversation/index.qmd": {
+    "index.html": "8014c7a5"
+  },
+  "posts/constriction/index.qmd": {
+    "index.html": "cb378a02"
+  },
+  "posts/writingdrill1/index.qmd": {
+    "index.html": "edd33ab9"
+  },
+  "posts/thelongtail/index.qmd": {
+    "index.html": "d23aeda3"
+  },
+  "posts/thelongtail/thelongtailraw.md": {
+    "thelongtailraw.html": "fad0e4a6"
   }
 }
