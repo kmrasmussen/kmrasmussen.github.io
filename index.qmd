@@ -35,6 +35,7 @@ My name is Kasper. My interests include machine learning, LLMs, computational bi
 Superposition in Transformer
 Language Models ([PDF](https://kmrasmussen.com/files/pdf/thesis.pdf)): In 2023, concurrently with Anthropic's first SAEs trained on larger LLMs, I formalized notions of superposition that allowed for falsifiable experiments, and showed restricted kinds of superposition in realistic pre-trained Transformer LLMs using linear probes and causal interventions. I was supervised by [Mor Geva](https://mega002.github.io/).
 
+* EnigmataEval with Verifiers ([Google Colab notebook](https://colab.research.google.com/drive/1-hBkho7XvX8Z3Guy_PVU3qC72Cw6UlJX?usp=sharing)): In this notebook I show how the `verifiers` library ([Github](https://github.com/willccbb/verifiers)) for reasoning and agentic LLM can be used to define an environment for the reasoning benchmark [Enigmata](https://seed-enigmata.github.io/)
 
 
 ## Videos
