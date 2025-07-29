@@ -2,13 +2,14 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/berlinday1/index.html",
       "/posts/thelongtail/index.html",
       "/posts/writingdrill1/index.html",
       "/posts/macroenergy/index.html",
       "/posts/thoughtadventures1/index.html",
       "/posts/curiousadventures1/index.html",
-      "/posts/jaxadventure1/index.html",
       "/posts/srfcmyconnectome/index.html",
+      "/posts/jaxadventure1/index.html",
       "/posts/rambling001/index.html",
       "/posts/stopconversation/index.html"
     ]
@@ -16,13 +17,14 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/berlinday1/index.html",
       "/posts/thelongtail/index.html",
       "/posts/writingdrill1/index.html",
       "/posts/macroenergy/index.html",
       "/posts/thoughtadventures1/index.html",
       "/posts/curiousadventures1/index.html",
-      "/posts/jaxadventure1/index.html",
       "/posts/srfcmyconnectome/index.html",
+      "/posts/jaxadventure1/index.html",
       "/posts/rambling001/index.html",
       "/posts/stopconversation/index.html"
     ]
